@@ -24,18 +24,15 @@ namespace CommunityGaming
 
     public class Game<T> where T : IBaseSerializer
     {
-        private List<T> communicationUnits;// = new List<T>();
+        public List<T> communicationUnits;
         private List<ClientObject> clientList;
-        //CommunicationUnitFactory communicationUnitFactory;
+        
 
         private T createNewCommunicationUnit(NetworkStream stream)
         {
-            //return new T(stream);
             return (T)Activator.CreateInstance(typeof(T), stream);
         }
 
-        //public abstract ComunicationUnit
-        
         public Game()
         {
             this.communicationUnits = new List<T>();
@@ -50,7 +47,6 @@ namespace CommunityGaming
 
                 server.Start();
 
-                //this.setTimer();
                 while (true)
                 {
                     Console.WriteLine("Waiting for a connection... ");
@@ -82,23 +78,5 @@ namespace CommunityGaming
                 communicationUnit.readFromStream();
             }
         }
-
-        //  void setTimer()
-        //  {
-        //      System.Timers.Timer aTimer = new System.Timers.Timer();
-        //      aTimer.Elapsed+=new ElapsedEventHandler(OnTimedEvent);
-        //      aTimer.Interval=5000;
-        //      aTimer.Enabled=true;
-        //  }
-        
-        //  private static void OnTimedEvent(object source, ElapsedEventArgs e)
-        //  {
-        //    Console.WriteLine("Printing all CommunityUnit values:");
-        //    for(int i=0 ; i<source.communicationUnits.Count() ; i++)
-        //    {
-        //        Console.WriteLine("Client:{0}\ta:{1}",i, communicationUnits[i].a);
-        //    }
-        //  }
-
     }
 }
