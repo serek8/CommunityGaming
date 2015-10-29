@@ -6,7 +6,8 @@ class TCPClient
 {
  public static void main(String argv[]) throws Exception
  {
-  String sentence;
+  String motion, rotation, action;
+  int m,r,a;
   String modifiedSentence;
   BufferedReader inFromUser = new BufferedReader( new InputStreamReader(System.in));
   Socket clientSocket = new Socket("192.168.0.110", 5555);
@@ -14,14 +15,32 @@ class TCPClient
   BufferedReader inFromServer = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
   while(true)
   {
-	  //int a =1;
-	 // a = Integer.reverse(a);
-	  sentence = inFromUser.readLine();
+//	  int a =1;
+//	  a = Integer.reverse(a);
+	  System.out.println("Type movement:");
+	  motion = inFromUser.readLine();
+	  m=Integer.parseInt(motion);
+	  System.out.println("Type rotation:");
+	  rotation = inFromUser.readLine();
+	  r=Integer.parseInt(rotation);
+	  System.out.println("Type action:");
+	  action = inFromUser.readLine();
+	  a=Integer.parseInt(action);
+	  
 	  ByteBuffer buf = ByteBuffer.allocate(4);
 	  buf.order(ByteOrder.LITTLE_ENDIAN);
+	  outToServer.write(buf.putInt(m).array(), 0, 4);
 	  
-	  outToServer.write(buf.putInt(7).array(), 0, 4);
 	  
+	  buf = ByteBuffer.allocate(4);
+	  buf.order(ByteOrder.LITTLE_ENDIAN);
+	  outToServer.write(buf.putInt(r).array(), 0, 4);
+	  
+	  
+	  buf = ByteBuffer.allocate(4);
+	  buf.order(ByteOrder.LITTLE_ENDIAN);
+	  outToServer.write(buf.putInt(a).array(), 0, 4);
+	  System.out.println("Package has been sent");
   }
   //clientSocket.close();
  }
