@@ -18,8 +18,8 @@ namespace CommunityGaming
                     
            while ((true))
            {
+                 Console.WriteLine("Nacisnij ENTER zeby sprawdzic wariorGame.communicationUnits[i].movement");
                  Console.ReadLine();
-                 Console.WriteLine("Juz wyswietlam...");
                  for (int i = 0; i < wariorGame.communicationUnits.Count(); i++)
                  {
                      Console.WriteLine("Client:{0}\nmovement{1}",i,wariorGame.communicationUnits[i].movement);
