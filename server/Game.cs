@@ -5,7 +5,6 @@ using System.Net;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Timers;
 
 namespace CommunityGaming
@@ -37,6 +36,11 @@ namespace CommunityGaming
         {
             this.communicationUnits = new List<T>();
             this.clientList = new List<ClientObject>();
+        }
+        
+        public void startServer()
+        {
+            
             
             
             TcpListener server = null;
