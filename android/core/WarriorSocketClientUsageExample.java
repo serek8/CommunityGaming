@@ -22,7 +22,7 @@ public class WarriorSocketClientUsageExample implements SocketClientDelegate
 		
 		WarriorSocketClientUsageExample client = new WarriorSocketClientUsageExample();
 		try {
-			SocketClient socketClient = new SocketClient(5555, "localhost", client);
+			SocketClient socketClient = new SocketClient(5555,"localhost", client);
 
 		
 		BufferedReader inFromUser = new BufferedReader( new InputStreamReader(System.in));
