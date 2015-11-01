@@ -7,10 +7,16 @@
 //
 
 #import "SocketClient.h"
+#import "BaseSerializable.h"
+
 
 @interface SocketClient()
-{}
+{
+    OutputSerializer *_outputSerializer;
+}
 
+@property (nonatomic, strong) NSInputStream *inputStream;
+@property (nonatomic, strong) NSOutputStream *outputStream;
 
 @property (nonatomic, weak) id<SocketClientDelegate> delegate;
 
@@ -43,13 +49,14 @@
     //[self.outputStream scheduleInRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
     [self.inputStream open];
     [self.outputStream open];
+    _outputSerializer=new OutputSerializer(self.outputStream);
     return self;
 }
 
--(void)sendText:(NSString*)text
+
+-(void)sendObject:(id<BaseSerializable>)serializer
 {
-    NSString *str = [NSString stringWithFormat:@"%@", text];
-    NSLog(@"\nSocketClient: Data buffered:%d, | Data sent:%d",[str length], [self.outputStream write:((const uint8_t*)[str UTF8String]) maxLength:[str length]]);
+    [serializer writeToStream:self];
 }
 
 
@@ -103,7 +110,10 @@
     
 }
 
-
+-(OutputSerializer*)getOutputSerializer
+{
+    return _outputSerializer;
+}
 
 
 

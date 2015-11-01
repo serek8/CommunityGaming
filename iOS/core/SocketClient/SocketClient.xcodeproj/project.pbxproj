@@ -7,22 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3B59F2B01BD7F41200981470 /* OutputSerializer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 3B59F2AE1BD7F41200981470 /* OutputSerializer.mm */; settings = {ASSET_TAGS = (); }; };
-		3B59F2B31BD7F4B400981470 /* IBaseSerializer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3B59F2B11BD7F4B400981470 /* IBaseSerializer.cpp */; settings = {ASSET_TAGS = (); }; };
+		3B59F2B01BD7F41200981470 /* OutputSerializer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 3B59F2AE1BD7F41200981470 /* OutputSerializer.mm */; };
+		3BE858171BE1132500F5ADE5 /* WarriorsSerializer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 3BE858161BE1132500F5ADE5 /* WarriorsSerializer.mm */; };
 		3BFB92B71BC1531400FE1EB1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BFB92B61BC1531400FE1EB1 /* main.m */; };
 		3BFB92BA1BC1531400FE1EB1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BFB92B91BC1531400FE1EB1 /* AppDelegate.m */; };
 		3BFB92BD1BC1531400FE1EB1 /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 3BFB92BC1BC1531400FE1EB1 /* ViewController.mm */; };
 		3BFB92C01BC1531400FE1EB1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3BFB92BE1BC1531400FE1EB1 /* Main.storyboard */; };
 		3BFB92C21BC1531400FE1EB1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3BFB92C11BC1531400FE1EB1 /* Assets.xcassets */; };
 		3BFB92C51BC1531400FE1EB1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3BFB92C31BC1531400FE1EB1 /* LaunchScreen.storyboard */; };
-		3BFB92CE1BC1546900FE1EB1 /* SocketClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BFB92CD1BC1546900FE1EB1 /* SocketClient.m */; settings = {ASSET_TAGS = (); }; };
+		3BFB92CE1BC1546900FE1EB1 /* SocketClient.mm in Sources */ = {isa = PBXBuildFile; fileRef = 3BFB92CD1BC1546900FE1EB1 /* SocketClient.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		3B59F2AE1BD7F41200981470 /* OutputSerializer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = OutputSerializer.mm; sourceTree = "<group>"; };
 		3B59F2AF1BD7F41200981470 /* OutputSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OutputSerializer.h; sourceTree = "<group>"; };
-		3B59F2B11BD7F4B400981470 /* IBaseSerializer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IBaseSerializer.cpp; sourceTree = "<group>"; };
-		3B59F2B21BD7F4B400981470 /* IBaseSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBaseSerializer.h; sourceTree = "<group>"; };
+		3BE858121BE1119800F5ADE5 /* BaseSerializable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseSerializable.h; sourceTree = "<group>"; };
+		3BE858151BE1132500F5ADE5 /* WarriorsSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WarriorsSerializer.h; sourceTree = "<group>"; };
+		3BE858161BE1132500F5ADE5 /* WarriorsSerializer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = WarriorsSerializer.mm; sourceTree = "<group>"; };
 		3BFB92B21BC1531400FE1EB1 /* SocketClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SocketClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3BFB92B61BC1531400FE1EB1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3BFB92B81BC1531400FE1EB1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -34,7 +35,7 @@
 		3BFB92C41BC1531400FE1EB1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3BFB92C61BC1531400FE1EB1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3BFB92CC1BC1546900FE1EB1 /* SocketClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocketClient.h; sourceTree = "<group>"; };
-		3BFB92CD1BC1546900FE1EB1 /* SocketClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocketClient.m; sourceTree = "<group>"; };
+		3BFB92CD1BC1546900FE1EB1 /* SocketClient.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SocketClient.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,11 +78,12 @@
 				3BFB92C61BC1531400FE1EB1 /* Info.plist */,
 				3BFB92B51BC1531400FE1EB1 /* Supporting Files */,
 				3BFB92CC1BC1546900FE1EB1 /* SocketClient.h */,
-				3BFB92CD1BC1546900FE1EB1 /* SocketClient.m */,
+				3BFB92CD1BC1546900FE1EB1 /* SocketClient.mm */,
 				3B59F2AE1BD7F41200981470 /* OutputSerializer.mm */,
 				3B59F2AF1BD7F41200981470 /* OutputSerializer.h */,
-				3B59F2B11BD7F4B400981470 /* IBaseSerializer.cpp */,
-				3B59F2B21BD7F4B400981470 /* IBaseSerializer.h */,
+				3BE858121BE1119800F5ADE5 /* BaseSerializable.h */,
+				3BE858151BE1132500F5ADE5 /* WarriorsSerializer.h */,
+				3BE858161BE1132500F5ADE5 /* WarriorsSerializer.mm */,
 			);
 			path = SocketClient;
 			sourceTree = "<group>";
@@ -166,9 +168,9 @@
 			files = (
 				3B59F2B01BD7F41200981470 /* OutputSerializer.mm in Sources */,
 				3BFB92BD1BC1531400FE1EB1 /* ViewController.mm in Sources */,
-				3BFB92CE1BC1546900FE1EB1 /* SocketClient.m in Sources */,
+				3BE858171BE1132500F5ADE5 /* WarriorsSerializer.mm in Sources */,
+				3BFB92CE1BC1546900FE1EB1 /* SocketClient.mm in Sources */,
 				3BFB92BA1BC1531400FE1EB1 /* AppDelegate.m in Sources */,
-				3B59F2B31BD7F4B400981470 /* IBaseSerializer.cpp in Sources */,
 				3BFB92B71BC1531400FE1EB1 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -217,7 +219,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_C_LANGUAGE_STANDARD = c11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -260,7 +262,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_C_LANGUAGE_STANDARD = c11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;

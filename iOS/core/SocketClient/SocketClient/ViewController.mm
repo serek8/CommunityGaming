@@ -8,7 +8,7 @@
 
 #import "ViewController.h"
 #import "OutputSerializer.h"
-
+#import "WarriorsSerializer.h"
 
 @interface ViewController () 
 @property (weak, nonatomic) IBOutlet UITextField *textFieldRead;
@@ -39,7 +39,7 @@
 
 - (IBAction)sendButton:(UIButton *)sender
 {
-    [self.socketClient sendText: self.textField.text];
+    
 }
 
 - (IBAction)readButton:(UIButton *)sender
@@ -69,15 +69,18 @@
 {
     //localhost
     //192.168.0.104
-    self.socketClient = [[SocketClient alloc] initWithHost:@"192.168.0.110" port:5555 delegate:self];
+    self.socketClient = [[SocketClient alloc] initWithHost:@"localhost" port:5555 delegate:self];
     //[sender setUserInteractionEnabled:NO];
 }
 
 - (IBAction)sendWithSerializer:(UIButton *)sender
 {
-    int a = 5;
-    OutputSerializer serializer(self.socketClient.outputStream);
-    serializer << a;
+    WarriorsSerializer *war = [[WarriorsSerializer alloc] init];
+    war.warriorMovement = 1;
+    war.warriorRoatation = 2;
+    war.warriorAction = 3;
+    [self.socketClient sendObject:war];
+
 }
 @end
 

@@ -7,6 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "OutputSerializer.h"
+#import "BaseSerializable.h"
 
 #define BUFFER_SIZE 128
 
@@ -23,15 +25,15 @@
 
 @end
 
-
+@protocol BaseSerializable;
 @interface SocketClient : NSObject <NSStreamDelegate>
 
-@property (nonatomic, strong) NSInputStream *inputStream;
-@property (nonatomic, strong) NSOutputStream *outputStream;
+
 
 
 -(id)initWithHost:(NSString*)hostName port:(int)port delegate:(id<SocketClientDelegate>)delegate;
--(void)sendText:(NSString*)text; // It automatically ads new line sign at the end of the string
+-(void)sendObject:(id<BaseSerializable>)serializer;
 
+-(OutputSerializer*)getOutputSerializer;
 
 @end
