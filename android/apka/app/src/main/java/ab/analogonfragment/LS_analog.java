@@ -2,24 +2,41 @@ package ab.analogonfragment;
 
 import android.os.Bundle;
 import android.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import ab.analogonfragment.core.WarriorSocketClientUsageExample;
 
 public class LS_analog extends Fragment {
 
     private ImageView analogImage, center;
     private float positionX, positionY;
     private TextView tv_positionX, tv_positionY;
+    private  WarriorSocketClientUsageExample w;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View v =inflater.inflate(R.layout.fragment_ls_analog, container, false);
+
+        Button b1 = (Button) v.findViewById(R.id.btn_reset);
+        b1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.d("Click", "Click");
+                w = new WarriorSocketClientUsageExample();
+                w.execute();
+            }
+        });
+
         analogImage = (ImageView) v.findViewById(R.id.analogImage);
         analogImage.setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -59,6 +76,7 @@ public class LS_analog extends Fragment {
 
                             analogImage.setX(positionX);
                             analogImage.setY(positionY);
+                            w.getSendedData(Math.round(positionX), Math.round(positionY));
                             autoSetPosition();
                         }
 

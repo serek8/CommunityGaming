@@ -7,6 +7,7 @@ import android.content.Context;
 import android.media.Image;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -21,6 +22,8 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import org.w3c.dom.Text;
+
+import ab.analogonfragment.core.WarriorSocketClientUsageExample;
 
 public class MainActivity extends Activity  {
 
@@ -59,6 +62,7 @@ public class MainActivity extends Activity  {
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.leftSide, ls_analog );
         fragmentTransaction.commit();
+
 
 
    /*
