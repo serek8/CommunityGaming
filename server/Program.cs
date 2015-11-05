@@ -22,11 +22,18 @@ namespace CommunityGaming
                  Console.ReadLine();
                  for (int i = 0; i < wariorGame.communicationUnits.Count(); i++)
                  {
-                     Console.WriteLine("Client:{0}\nmovement{1}",i,wariorGame.communicationUnits[i].movement);
+                     if (!wariorGame.communicationUnits[i].isConnected)
+                     {
+                         Console.WriteLine("Client:{0} is disconnected",i);
+                         continue;
+                     }
+                     
+                     Console.WriteLine("Client:{0}\tmovement: {1}",i,wariorGame.communicationUnits[i].movement);
+                     Console.WriteLine("Client:{0}\trotation: {1}",i,wariorGame.communicationUnits[i].rotation);
+                     Console.WriteLine("Client:{0}\taction: {1}",i,wariorGame.communicationUnits[i].action);                         
+                                              
                  }
-           }
-            
-            
+           }  
         }
     }
 }

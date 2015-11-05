@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CommunityGaming
 {
-	class WarriorCommunicationUnit : CommunicationUnit
+	class WarriorCommunicationUnit : CommunicationUnit, ISocketAccessibility
 	{
         // Tylko tego uzywasz        
         public int movement, rotation, action;
@@ -16,15 +16,23 @@ namespace CommunityGaming
         // Core part        
         public WarriorCommunicationUnit(NetworkStream stream)
         :base(stream)
-        {}              
+        {
+             movement = -1; // -1 is default
+             rotation = -1;
+             action   = -1;   
+                
+        }              
 	public override void readFromStream() 
         {
-            this.movement = inputSerializer.readIntFromStream();
-            this.rotation = inputSerializer.readIntFromStream();
-            this.action = inputSerializer.readIntFromStream();
-            if(this.action==1) isActionSet=true;
-            Console.WriteLine("movement:{0}, rotation:{1}, action{2}", movement, rotation, action);
-         }
+            lock (this)
+            {
+             this.movement = inputSerializer.readIntFromStream();
+             this.rotation = inputSerializer.readIntFromStream();
+             this.action = inputSerializer.readIntFromStream();
+            }
+             if(this.action==1) isActionSet=true;
+             Console.WriteLine("movement:{0}, rotation:{1}, action{2}", movement, rotation, action);
+        }
         public override void writeFromStream() { }	
 	}		
 }

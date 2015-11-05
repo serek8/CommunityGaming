@@ -9,13 +9,10 @@ namespace CommunityGaming
 {
 	class WarriorGame : Game<WarriorCommunicationUnit>
 	{
-		public void elo()
-		
-		{
-			int a = this.communicationUnits[0].movement;
-			
-			
-		}
+		//  public void exampleUsageMethod()
+		//  {
+		//  	int a = this.communicationUnits[0].movement;
+		//  }
 	
 	}
 	
