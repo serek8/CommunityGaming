@@ -7,20 +7,23 @@ using System.Net.Sockets;
 public class UnityCommunicationUnit : MonoBehaviour, ISocketAccessibility, IBaseSerializer
 {
 
-     WarriorCommunicationUnit warrior;
+   public  WarriorCommunicationUnit warrior;
     float speed = 20.0f;
-    GameObject testCube;
+    public GameObject testCube;
 
-	// Use this for initialization
-	void Start () {
-        GameObject player = Instantiate(testCube, new Vector3(testCube.transform.position.x + UnityEngine.Random.Range(5.0f, 7.0f), testCube.transform.position.y + UnityEngine.Random.Range(3.0f, 5.0f), 0), Quaternion.identity) as GameObject;
-        
+    // Use this for initialization
+    void Start () {
+        testCube = Resources.Load("TestCube") as GameObject;
+         Instantiate(testCube, new Vector3(testCube.transform.position.x + UnityEngine.Random.Range(5.0f, 7.0f), testCube.transform.position.y + UnityEngine.Random.Range(3.0f, 5.0f), 0), Quaternion.identity) ;
+       
     }
 
     public void setWarrior(WarriorCommunicationUnit w)
     {
         warrior = w;
+        
     }
+    //public UnityCommunicationUnit() { }
 
     // Update is called once per frame
     void Update () {

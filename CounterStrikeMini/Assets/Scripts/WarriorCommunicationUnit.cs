@@ -6,20 +6,31 @@ namespace CommunityGaming
 {
     public class WarriorCommunicationUnit : CommunicationUnit, ISocketAccessibility
 	{
+       
         // Tylko tego uzywasz        
         public int movement, rotation, action;
+        //public GameObject players;
         public bool isActionSet = false;
-        
+        //public delegate void NextPrimeDelegate();
+        private UnityCommunicationUnit ucu;
+
         // Core part        
         public WarriorCommunicationUnit(NetworkStream stream)
-        :base(stream)
+        : base(stream)
         {
-             movement = -1; // -1 is default
-             rotation = -1;
-             action   = -1;
+            movement = -1; // -1 is default
+            rotation = -1;
+            action = -1;
 
-            UnityCommunicationUnit ucu = GameObject.Find("Players").AddComponent<UnityCommunicationUnit>();
-            ucu.setWarrior(this);
+            /* Program.disp.Dispatch(() => */
+
+
+            Loom.QueueOnMainThread(() =>
+                 {
+                     ucu = GameObject.FindGameObjectWithTag("Player").AddComponent<UnityCommunicationUnit>();
+                     ucu.setWarrior(this);
+                 });
+           
 
         }              
 	public override void readFromStream() 
