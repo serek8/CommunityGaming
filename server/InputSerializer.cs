@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace CommunityGaming
 {
@@ -23,12 +24,11 @@ namespace CommunityGaming
             int totalBytes = 0;
             while (totalBytes < 3)
             {
-
                 i=networkStream.Read(bytes, totalBytes, bytes.Length-totalBytes);
+                if (i<=0)  throw new IOException();
+                
                 totalBytes += i;
-                Console.WriteLine("Reeceived {0}bytes:",i);
-                // Translate data bytes to a ASCII string.
-            
+                //Console.WriteLine("Reeceived {0}bytes:",i);
             }
             return BitConverter.ToInt32(bytes, 0);
         }
