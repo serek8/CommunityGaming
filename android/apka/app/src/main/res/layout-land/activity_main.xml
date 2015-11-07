@@ -13,9 +13,22 @@
         android:layout_weight="1"
         android:id="@+id/leftSide"></FrameLayout>
 
-    <FrameLayout
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:id="@+id/rideSide"></FrameLayout>
+        android:layout_weight="1">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="4"
+            android:id="@+id/fireSide"></FrameLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:id="@+id/rideSide"></FrameLayout>
+    </LinearLayout>
 </LinearLayout>

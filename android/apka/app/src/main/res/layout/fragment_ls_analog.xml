@@ -51,7 +51,7 @@
             style="?android:attr/buttonStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="RESET"
+            android:text="CONNECT"
             android:id="@+id/btn_reset"
             android:layout_gravity="right|bottom"
             android:layout_alignParentBottom="true"

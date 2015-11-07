@@ -32,6 +32,11 @@ public class SocketClient
     private DataOutputStream outputStream;
     private SocketClientDelegate delegate;
     private String s ;
+    private boolean ifIsConnected = false;
+
+    public boolean isIfIsConnected() {
+        return ifIsConnected;
+    }
 
     public SocketClient(int port, String host, SocketClientDelegate delegate) throws IOException
     {
@@ -39,6 +44,7 @@ public class SocketClient
             this.clientSocket = new Socket(host, port);  //("localhost", 5555);
             this.delegate = delegate;
             this.outputStream = new DataOutputStream(this.clientSocket.getOutputStream());
+            ifIsConnected = true;
 //			this.buffer4bytes = ByteBuffer.allocate(4);
 //			buffer4bytes.order(ByteOrder.LITTLE_ENDIAN);
 
