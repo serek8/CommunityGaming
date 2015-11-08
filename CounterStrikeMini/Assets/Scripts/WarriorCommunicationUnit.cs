@@ -13,6 +13,7 @@ namespace CommunityGaming
         public bool isActionSet = false;
         //public delegate void NextPrimeDelegate();
         private UnityCommunicationUnit ucu;
+        
 
         // Core part        
         public WarriorCommunicationUnit(NetworkStream stream)

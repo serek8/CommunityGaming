@@ -13,7 +13,6 @@ using System.Linq;
 public class Loom : MonoBehaviour
 {
     private static Loom _current;
-  
 
     public static Loom Current
     {
@@ -29,10 +28,8 @@ public class Loom : MonoBehaviour
                 }
 
                 _current = g.GetComponent<Loom>() ?? g.AddComponent<Loom>();
-             
-
             }
-           
+
             return _current;
         }
     }
@@ -117,8 +114,6 @@ public class Loom : MonoBehaviour
 
     void Update()
     {
-       
-        
         //Process the non-delayed actions
         lock (_actions)
         {

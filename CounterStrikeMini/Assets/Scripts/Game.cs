@@ -67,6 +67,7 @@ namespace CommunityGaming
                     Console.WriteLine("Connected! id:" + (client.id));
                     Thread thread = new Thread(new ThreadStart(() => handleClient(communicationUnit, client)));
                     thread.Start();
+                    Debug.Log(clientList.Count());
                     // client.Close();
                 }
             }
