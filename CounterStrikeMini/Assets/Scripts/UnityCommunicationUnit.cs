@@ -18,7 +18,9 @@ public class UnityCommunicationUnit : MonoBehaviour, ISocketAccessibility, IBase
     private Vector3 direction;
     private float distanceFromObject;
 
-
+    public GameObject bullet; //bullet object
+    public float nextFire; // set to 0 in Unity
+    public float fireRate; // how often they should shot 
 
     // Use this for initialization
     void Start () {
@@ -56,6 +58,7 @@ public class UnityCommunicationUnit : MonoBehaviour, ISocketAccessibility, IBase
                 break;
         }
         RotateObject(warrior.rotation);
+        ShotBullet();
 
     }
 
@@ -102,10 +105,17 @@ public class UnityCommunicationUnit : MonoBehaviour, ISocketAccessibility, IBase
 
     void RotateObject(int x)
     {
-
-       
       playerTransform.rotation = Quaternion.Euler(0, 0, x);
      
+    }
+
+    void ShotBullet() {
+        //check if warrior.action is equal to shot and if they are eligble to shot later we can add types of weapon and depending on them do frequency of shooting
+        if(warrior.action == 1 && Time.time > nextFire) {
+            nextFire = Time.time + fireRate;
+            Vector3 bulletSpawnPosition = playerTransform.position + new Vector3(0.2f, 0.0f, 0.2f);
+            Instantiate(bullet, bulletSpawnPosition, playerTransform.rotation);
+        }
     }
 
 
