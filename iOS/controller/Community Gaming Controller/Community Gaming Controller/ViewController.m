@@ -7,10 +7,13 @@
 //
 
 #import "ViewController.h"
+#import "ContainerView.h"
+
 
 @interface ViewController ()
 
-@property (strong, nonatomic) UIImageView *imageView;
+@property (strong, nonatomic) ContainerView *leftContainerView;
+@property (strong, nonatomic) ContainerView *rightContainerView;
 
 @end
 
@@ -18,41 +21,25 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.imageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"ball"]];
-    self.imageView.center = self.view.center;
-    [self.view addSubview:self.imageView];
-    // Do any additional setup after loading the view, typically from a nib.
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
-    NSLog(@"Touch began");
+    [self configureContainerViews];
     
-    UITouch *touch = [[event touchesForView:self.view] anyObject];
-    CGPoint point = [touch locationInView:self.view];
-    self.imageView.center = point;
+//    self.imageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"ball"]];
+//    self.imageView.center = self.view.center;
+//    [self.view addSubview:self.imageView];
+     //Do any additional setup after loading the view, typically from a nib.
 }
 
-- (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
-    NSLog(@"Touch end");
-    UITouch *touch = [[event touchesForView:self.view] anyObject];
-    CGPoint point = [touch locationInView:self.view];
-    self.imageView.center = point;
+- (void)configureContainerViews{
+    self.leftContainerView = [[[NSBundle mainBundle] loadNibNamed:@"ContainerView" owner:self options:nil] lastObject];
+    self.leftContainerView.containerViewType = ContainerViewTypeMovement;
+    self.leftContainerView.frame = CGRectMake(0, 0, self.view.frame.size.width/2 - 1, self.view.frame.size.height);
+    [self.view addSubview:self.leftContainerView];
+    self.rightContainerView = [[[NSBundle mainBundle] loadNibNamed:@"ContainerView" owner:self options:nil] lastObject];
+    self.rightContainerView.containerViewType = ContainerViewTypeRotation;
+    self.rightContainerView.frame = CGRectMake(self.view.frame.size.width/2 + 1, 0, self.view.frame.size.width/2 - 1, self.view.frame.size.height);
+    [self.view addSubview:self.rightContainerView];
 }
 
-- (void)touchesCancelled:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
-    NSLog(@"Touch cancel");
-}
 
-- (void)touchesMoved:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
-    NSLog(@"Touch moved");
-    UITouch *touch = [[event touchesForView:self.view] anyObject];
-    CGPoint point = [touch locationInView:self.view];
-    self.imageView.center = point;
-}
 
 @end

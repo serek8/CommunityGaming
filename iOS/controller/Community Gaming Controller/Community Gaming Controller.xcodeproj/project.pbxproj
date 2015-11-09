@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		15F51E4A1BF15B1400946A14 /* ContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 15F51E491BF15B1400946A14 /* ContainerView.m */; settings = {ASSET_TAGS = (); }; };
+		15F51E4C1BF15BE800946A14 /* ContainerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15F51E4B1BF15BE800946A14 /* ContainerView.xib */; settings = {ASSET_TAGS = (); }; };
 		15FB1DFF1BF10E5B0030DD94 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 15FB1DFE1BF10E5B0030DD94 /* main.m */; };
 		15FB1E021BF10E5B0030DD94 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 15FB1E011BF10E5B0030DD94 /* AppDelegate.m */; };
 		15FB1E051BF10E5B0030DD94 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15FB1E041BF10E5B0030DD94 /* ViewController.m */; };
@@ -16,6 +18,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		15F51E481BF15B1400946A14 /* ContainerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContainerView.h; sourceTree = "<group>"; };
+		15F51E491BF15B1400946A14 /* ContainerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContainerView.m; sourceTree = "<group>"; };
+		15F51E4B1BF15BE800946A14 /* ContainerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContainerView.xib; sourceTree = "<group>"; };
 		15FB1DFA1BF10E5B0030DD94 /* Community Gaming Controller.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Community Gaming Controller.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		15FB1DFE1BF10E5B0030DD94 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		15FB1E001BF10E5B0030DD94 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -62,7 +67,10 @@
 				15FB1E011BF10E5B0030DD94 /* AppDelegate.m */,
 				15FB1E031BF10E5B0030DD94 /* ViewController.h */,
 				15FB1E041BF10E5B0030DD94 /* ViewController.m */,
+				15F51E481BF15B1400946A14 /* ContainerView.h */,
+				15F51E491BF15B1400946A14 /* ContainerView.m */,
 				15FB1E061BF10E5B0030DD94 /* Main.storyboard */,
+				15F51E4B1BF15BE800946A14 /* ContainerView.xib */,
 				15FB1E091BF10E5B0030DD94 /* Assets.xcassets */,
 				15FB1E0B1BF10E5B0030DD94 /* LaunchScreen.storyboard */,
 				15FB1E0E1BF10E5B0030DD94 /* Info.plist */,
@@ -136,6 +144,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				15F51E4C1BF15BE800946A14 /* ContainerView.xib in Resources */,
 				15FB1E0D1BF10E5B0030DD94 /* LaunchScreen.storyboard in Resources */,
 				15FB1E0A1BF10E5B0030DD94 /* Assets.xcassets in Resources */,
 				15FB1E081BF10E5B0030DD94 /* Main.storyboard in Resources */,
@@ -149,6 +158,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				15F51E4A1BF15B1400946A14 /* ContainerView.m in Sources */,
 				15FB1E051BF10E5B0030DD94 /* ViewController.m in Sources */,
 				15FB1E021BF10E5B0030DD94 /* AppDelegate.m in Sources */,
 				15FB1DFF1BF10E5B0030DD94 /* main.m in Sources */,
@@ -300,6 +310,7 @@
 				15FB1E131BF10E5B0030DD94 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
