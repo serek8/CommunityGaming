@@ -11,16 +11,10 @@
 enum {
     ContainerViewTypeMovement = 1,
     ContainerViewTypeRotation = 2
-};
-typedef NSUInteger ContainerViewType;
-
+}; typedef NSUInteger ContainerViewType;
 
 @interface ContainerView : UIView
 
-@property (weak, nonatomic) IBOutlet UIImageView *pointFollower;
-@property (weak, nonatomic) IBOutlet UIView *centerPoint;
 @property ContainerViewType containerViewType;
-
-//- (void)configurePointFollower;
 
 @end

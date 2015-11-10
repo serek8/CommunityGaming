@@ -9,7 +9,6 @@
 #import "ViewController.h"
 #import "ContainerView.h"
 
-
 @interface ViewController ()
 
 @property (strong, nonatomic) ContainerView *leftContainerView;
@@ -26,17 +25,18 @@
 //    self.imageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"ball"]];
 //    self.imageView.center = self.view.center;
 //    [self.view addSubview:self.imageView];
-     //Do any additional setup after loading the view, typically from a nib.
+//    Do any additional setup after loading the view, typically from a nib.
 }
 
 - (void)configureContainerViews{
     self.leftContainerView = [[[NSBundle mainBundle] loadNibNamed:@"ContainerView" owner:self options:nil] lastObject];
     self.leftContainerView.containerViewType = ContainerViewTypeMovement;
-    self.leftContainerView.frame = CGRectMake(0, 0, self.view.frame.size.width/2 - 1, self.view.frame.size.height);
+    self.leftContainerView.frame = CGRectMake(0, 0, self.view.frame.size.width / 2 - 1, self.view.frame.size.height);
     [self.view addSubview:self.leftContainerView];
+
     self.rightContainerView = [[[NSBundle mainBundle] loadNibNamed:@"ContainerView" owner:self options:nil] lastObject];
     self.rightContainerView.containerViewType = ContainerViewTypeRotation;
-    self.rightContainerView.frame = CGRectMake(self.view.frame.size.width/2 + 1, 0, self.view.frame.size.width/2 - 1, self.view.frame.size.height);
+    self.rightContainerView.frame = CGRectMake(self.view.frame.size.width / 2 + 1, 0, self.view.frame.size.width/2 - 1, self.view.frame.size.height);
     [self.view addSubview:self.rightContainerView];
 }
 

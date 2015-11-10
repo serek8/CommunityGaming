@@ -7,6 +7,16 @@
 //
 
 #import "ContainerView.h"
+#import "../../../core/SocketClient/SocketClient/SocketClient.h"
+
+@interface ContainerView () <SocketClientDelegate>
+
+@property (strong, nonatomic) SocketClient *socketClient;
+@property (weak, nonatomic) IBOutlet UIImageView *pointFollower;
+@property (weak, nonatomic) IBOutlet UIView *centerPoint;
+
+@end
+
 
 @implementation ContainerView
 
@@ -15,6 +25,10 @@
 //    pointFollower.center = self.center;
 //    [self addSubview:pointFollower];
 //}
+
+- (void)awakeFromNib{
+    self.socketClient = [[SocketClient alloc] initWithHost:@"localhost" port:5555 delegate:self];
+}
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
 
@@ -67,6 +81,25 @@
     
     if (degrees < 0) return fabsf(degrees);
     else return 360 - degrees;
+}
+
+#pragma mark - SocketClientDelegate
+
+-(void)clientSocketDidConnectToServer{
+    NSLog(@"Connected");
+}
+
+-(void)clientSocketDidDisconnectFromServer{
+    NSLog(@"Disconnected");
+}
+
+-(void)clientSocketEncounteredErrorConnectingToServer{
+    NSLog(@"Error");
+}
+
+-(void)clientSocketDidReceivedData:(uint8_t *)data numberOfReadBytes:(int)dataSize;{
+//    [self.textFieldRead setText:[NSString stringWithUTF8String:(const char*)data]];
+//    NSLog(@"Otrzymuje:%s", (const char*)data);
 }
 
 @end
