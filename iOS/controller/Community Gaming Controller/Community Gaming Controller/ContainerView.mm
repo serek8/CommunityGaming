@@ -7,11 +7,10 @@
 //
 
 #import "ContainerView.h"
-#import "../../../core/SocketClient/SocketClient/SocketClient.h"
+#import "SocketClient.h"
 
-@interface ContainerView () <SocketClientDelegate>
+@interface ContainerView ()
 
-@property (strong, nonatomic) SocketClient *socketClient;
 @property (weak, nonatomic) IBOutlet UIImageView *pointFollower;
 @property (weak, nonatomic) IBOutlet UIView *centerPoint;
 
@@ -26,22 +25,19 @@
 //    [self addSubview:pointFollower];
 //}
 
-- (void)awakeFromNib{
-    self.socketClient = [[SocketClient alloc] initWithHost:@"localhost" port:5555 delegate:self];
-}
-
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
-
 
     UITouch *touch = [[event touchesForView:self] anyObject];
     CGPoint point = [touch locationInView:self];
     self.pointFollower.center = point;
-    CGFloat angle = [self angleToPoint:point];
+    int angle = [self angleToPoint:point];
     if (self.containerViewType == ContainerViewTypeMovement) {
-        NSLog([NSString stringWithFormat:@"Movement touch began: %f",angle]);
+        NSLog([NSString stringWithFormat:@"Movement touch began: %i",angle]);
+        [self.delegate movementDidChange:angle];
     }
     else if (self.containerViewType == ContainerViewTypeRotation){
-        NSLog([NSString stringWithFormat:@"Rotation touch began: %f",angle]);
+        NSLog([NSString stringWithFormat:@"Rotation touch began: %i",angle]);
+        [self.delegate rotationDidChange:angle];
     }
     
     //self.imageView.center = point;
@@ -61,45 +57,28 @@
     UITouch *touch = [[event touchesForView:self] anyObject];
     CGPoint point = [touch locationInView:self];
     self.pointFollower.center = point;
-    CGFloat angle = [self angleToPoint:point];
+    int angle = [self angleToPoint:point];
     if (self.containerViewType == ContainerViewTypeMovement) {
-        NSLog([NSString stringWithFormat:@"Movement: %f",angle]);
+        NSLog([NSString stringWithFormat:@"Movement: %i",angle]);
+        [self.delegate movementDidChange:angle];
     }
     else if (self.containerViewType == ContainerViewTypeRotation){
-        NSLog([NSString stringWithFormat:@"Rotation: %f",angle]);
+        NSLog([NSString stringWithFormat:@"Rotation: %i",angle]);
+        [self.delegate rotationDidChange:angle];
     }
     //self.imageView.center = point;
 }
 
-- (float)angleToPoint:(CGPoint)tapPoint{
+- (int)angleToPoint:(CGPoint)tapPoint{
     int x = self.centerPoint.center.x;
     int y = self.centerPoint.center.y;
-    float dx = tapPoint.x - x;
-    float dy = tapPoint.y - y;
+    int dx = tapPoint.x - x;
+    int dy = tapPoint.y - y;
     CGFloat radians = atan2(dy,dx); // in radians
     CGFloat degrees = radians * 180 / M_PI; // in degrees
     
-    if (degrees < 0) return fabsf(degrees);
-    else return 360 - degrees;
-}
-
-#pragma mark - SocketClientDelegate
-
--(void)clientSocketDidConnectToServer{
-    NSLog(@"Connected");
-}
-
--(void)clientSocketDidDisconnectFromServer{
-    NSLog(@"Disconnected");
-}
-
--(void)clientSocketEncounteredErrorConnectingToServer{
-    NSLog(@"Error");
-}
-
--(void)clientSocketDidReceivedData:(uint8_t *)data numberOfReadBytes:(int)dataSize;{
-//    [self.textFieldRead setText:[NSString stringWithUTF8String:(const char*)data]];
-//    NSLog(@"Otrzymuje:%s", (const char*)data);
+    if (degrees < 0) return (int)fabsf(degrees);
+    else return (int)(360 - degrees);
 }
 
 @end

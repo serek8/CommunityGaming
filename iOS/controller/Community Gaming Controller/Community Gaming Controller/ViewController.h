@@ -7,8 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ContainerView.h"
+#import "SocketClient.h"
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController <ContainerViewDelegate, SocketClientDelegate>
 
 
 @end

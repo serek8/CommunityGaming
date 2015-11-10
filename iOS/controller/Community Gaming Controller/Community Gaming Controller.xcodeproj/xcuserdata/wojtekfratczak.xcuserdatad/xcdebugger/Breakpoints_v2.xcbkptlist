@@ -35,13 +35,29 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../../core/SocketClient/SocketClient/SocketClient.mm"
-            timestampString = "468846818.552215"
+            filePath = "Community Gaming Controller/ViewController.m"
+            timestampString = "468856277.119999"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "36"
-            endingLineNumber = "36"
-            landmarkName = "-initWithHost:port:delegate:"
+            startingLineNumber = "47"
+            endingLineNumber = "47"
+            landmarkName = "-rotationDidChange"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Community Gaming Controller/ViewController.m"
+            timestampString = "468856277.791821"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "51"
+            endingLineNumber = "51"
+            landmarkName = "-movementDidChange"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -52,12 +68,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Community Gaming Controller/ContainerView.mm"
-            timestampString = "468846991.613779"
+            timestampString = "468856703.789862"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "30"
-            endingLineNumber = "30"
-            landmarkName = "-awakeFromNib"
+            startingLineNumber = "73"
+            endingLineNumber = "73"
+            landmarkName = "-angleToPoint:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

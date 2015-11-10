@@ -31,15 +31,13 @@
     [self.outputStream close];
 }
 
--(id)initWithHost:(NSString*)hostName port:(int)port delegate:(id<SocketClientDelegate>)delegate
-{
+-(id)initWithHost:(NSString*)hostName port:(int)port delegate:(id<SocketClientDelegate>)delegate {
     self = [super init];
     self.delegate = delegate;
     CFReadStreamRef readStream;
     CFWriteStreamRef writeStream;
     
     CFStreamCreatePairWithSocketToHost(NULL, (__bridge CFStringRef)hostName, port, &readStream, &writeStream);
-    
     
     self.inputStream = (__bridge_transfer NSInputStream *)readStream;
     self.outputStream = (__bridge_transfer NSOutputStream *)writeStream;
