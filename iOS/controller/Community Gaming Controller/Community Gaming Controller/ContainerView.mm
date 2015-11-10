@@ -74,8 +74,8 @@
     int y = self.centerPoint.center.y;
     int dx = tapPoint.x - x;
     int dy = tapPoint.y - y;
-    CGFloat radians = atan2(dy,dx); // in radians
-    CGFloat degrees = radians * 180 / M_PI; // in degrees
+    float radians = atan2(dy,dx); // in radians
+    float degrees = radians * 180 / M_PI; // in degrees
     
     if (degrees < 0) return (int)fabsf(degrees);
     else return (int)(360 - degrees);

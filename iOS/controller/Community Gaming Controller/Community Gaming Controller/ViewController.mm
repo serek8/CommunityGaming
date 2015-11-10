@@ -45,11 +45,13 @@
 
 - (void)rotationDidChange:(int)rotation{
     self.war.warriorRoatation = rotation;
+    self.war.warriorMovement = -1;
     [self.socketClient sendObject:self.war];
 }
 
 - (void)movementDidChange:(int)movement{
     self.war.warriorMovement = movement;
+    self.war.warriorRoatation = -1;
     [self.socketClient sendObject:self.war];
 }
 
