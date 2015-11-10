@@ -10,6 +10,7 @@
 		150927E11BF211C000583A11 /* OutputSerializer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 150927DC1BF211C000583A11 /* OutputSerializer.mm */; settings = {ASSET_TAGS = (); }; };
 		150927E21BF211C000583A11 /* SocketClient.mm in Sources */ = {isa = PBXBuildFile; fileRef = 150927DE1BF211C000583A11 /* SocketClient.mm */; settings = {ASSET_TAGS = (); }; };
 		150927E31BF211C000583A11 /* WarriorsSerializer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 150927E01BF211C000583A11 /* WarriorsSerializer.mm */; settings = {ASSET_TAGS = (); }; };
+		150927E71BF23F2F00583A11 /* ConnectionViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 150927E61BF23F2F00583A11 /* ConnectionViewController.mm */; settings = {ASSET_TAGS = (); }; };
 		15F51E4A1BF15B1400946A14 /* ContainerView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 15F51E491BF15B1400946A14 /* ContainerView.mm */; settings = {ASSET_TAGS = (); }; };
 		15F51E4C1BF15BE800946A14 /* ContainerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15F51E4B1BF15BE800946A14 /* ContainerView.xib */; settings = {ASSET_TAGS = (); }; };
 		15FB1DFF1BF10E5B0030DD94 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 15FB1DFE1BF10E5B0030DD94 /* main.m */; };
@@ -28,6 +29,8 @@
 		150927DE1BF211C000583A11 /* SocketClient.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = SocketClient.mm; path = ../../../core/SocketClient/SocketClient/SocketClient.mm; sourceTree = "<group>"; };
 		150927DF1BF211C000583A11 /* WarriorsSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WarriorsSerializer.h; path = ../../../core/SocketClient/SocketClient/WarriorsSerializer.h; sourceTree = "<group>"; };
 		150927E01BF211C000583A11 /* WarriorsSerializer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = WarriorsSerializer.mm; path = ../../../core/SocketClient/SocketClient/WarriorsSerializer.mm; sourceTree = "<group>"; };
+		150927E51BF23F2F00583A11 /* ConnectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectionViewController.h; sourceTree = "<group>"; };
+		150927E61BF23F2F00583A11 /* ConnectionViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ConnectionViewController.mm; sourceTree = "<group>"; };
 		15F51E481BF15B1400946A14 /* ContainerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContainerView.h; sourceTree = "<group>"; };
 		15F51E491BF15B1400946A14 /* ContainerView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ContainerView.mm; sourceTree = "<group>"; };
 		15F51E4B1BF15BE800946A14 /* ContainerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContainerView.xib; sourceTree = "<group>"; };
@@ -89,6 +92,8 @@
 			children = (
 				15FB1E001BF10E5B0030DD94 /* AppDelegate.h */,
 				15FB1E011BF10E5B0030DD94 /* AppDelegate.m */,
+				150927E51BF23F2F00583A11 /* ConnectionViewController.h */,
+				150927E61BF23F2F00583A11 /* ConnectionViewController.mm */,
 				15FB1E031BF10E5B0030DD94 /* ViewController.h */,
 				15FB1E041BF10E5B0030DD94 /* ViewController.mm */,
 				15F51E481BF15B1400946A14 /* ContainerView.h */,
@@ -187,6 +192,7 @@
 				15F51E4A1BF15B1400946A14 /* ContainerView.mm in Sources */,
 				150927E21BF211C000583A11 /* SocketClient.mm in Sources */,
 				15FB1E051BF10E5B0030DD94 /* ViewController.mm in Sources */,
+				150927E71BF23F2F00583A11 /* ConnectionViewController.mm in Sources */,
 				15FB1E021BF10E5B0030DD94 /* AppDelegate.m in Sources */,
 				150927E11BF211C000583A11 /* OutputSerializer.mm in Sources */,
 				15FB1DFF1BF10E5B0030DD94 /* main.m in Sources */,

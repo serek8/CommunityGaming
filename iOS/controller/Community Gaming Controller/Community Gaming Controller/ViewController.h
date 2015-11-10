@@ -12,6 +12,7 @@
 
 @interface ViewController : UIViewController <ContainerViewDelegate, SocketClientDelegate>
 
+@property (strong, nonatomic) SocketClient *socketClient;
 
 @end
 

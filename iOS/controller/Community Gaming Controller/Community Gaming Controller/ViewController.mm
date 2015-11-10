@@ -11,7 +11,6 @@
 
 @interface ViewController () 
 
-@property (strong, nonatomic) SocketClient *socketClient;
 @property (strong, nonatomic) ContainerView *leftContainerView;
 @property (strong, nonatomic) ContainerView *rightContainerView;
 @property (strong, nonatomic) WarriorsSerializer *war;
@@ -22,7 +21,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.socketClient = [[SocketClient alloc] initWithHost:@"localhost" port:5555 delegate:self];
+    //self.socketClient = [[SocketClient alloc] initWithHost:@"localhost" port:5555 delegate:self];
     [self configureContainerViews];
     self.war = [[WarriorsSerializer alloc] init];
 }
