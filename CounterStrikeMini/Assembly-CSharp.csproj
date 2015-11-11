@@ -55,7 +55,6 @@
      <Compile Include="Assets\Scripts\UnityCommunicationUnit.cs" />
      <Compile Include="Assets\Scripts\WarriorCommunicationUnit.cs" />
      <Compile Include="Assets\Scripts\WarriorGame.cs" />
-     <None Include="Assets\Audio\SoldierSoundsPack\ReadMe!.txt" />
  <Reference Include="UnityEngine.UI">
  <HintPath>D:/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
