@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vrv-fa-dRY">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="445" y="417"/>
+        </scene>
+        <!--Connection View Controller-->
+        <scene sceneID="8JG-j7-gol">
+            <objects>
+                <viewController id="vrv-fa-dRY" customClass="ConnectionViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="vZm-cd-yzD"/>
+                        <viewControllerLayoutGuide type="bottom" id="Zoz-Ug-ZVu"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="f1U-Sj-JXt">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hQY-Pj-2td">
+                                <rect key="frame" x="172" y="251" width="257" height="98"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="257" id="nSk-Ia-Fvb"/>
+                                    <constraint firstAttribute="height" constant="98" id="u1f-f1-Mgj"/>
+                                </constraints>
+                                <state key="normal" title="CONNECT"/>
+                                <connections>
+                                    <action selector="connectAction:" destination="vrv-fa-dRY" eventType="touchUpInside" id="YzI-wq-4I9"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter IP" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NxP-n1-bm2">
+                                <rect key="frame" x="172" y="213" width="257" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="257" id="uZE-zg-5T3"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Connection Status: " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jAM-3W-NQp">
+                                <rect key="frame" x="226" y="184" width="151" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="hQY-Pj-2td" firstAttribute="centerX" secondItem="f1U-Sj-JXt" secondAttribute="centerX" id="C9d-eK-pSu"/>
+                            <constraint firstItem="NxP-n1-bm2" firstAttribute="centerX" secondItem="f1U-Sj-JXt" secondAttribute="centerX" id="In2-Uz-S4R"/>
+                            <constraint firstItem="NxP-n1-bm2" firstAttribute="top" secondItem="jAM-3W-NQp" secondAttribute="bottom" constant="8" id="cUN-0K-A0M"/>
+                            <constraint firstItem="hQY-Pj-2td" firstAttribute="top" secondItem="NxP-n1-bm2" secondAttribute="bottom" constant="8" id="fdI-4w-Vtl"/>
+                            <constraint firstItem="jAM-3W-NQp" firstAttribute="centerX" secondItem="f1U-Sj-JXt" secondAttribute="centerX" id="i4x-HZ-yda"/>
+                            <constraint firstItem="hQY-Pj-2td" firstAttribute="centerY" secondItem="f1U-Sj-JXt" secondAttribute="centerY" id="imr-Q0-2wc"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="7BG-m8-OOg"/>
+                    <connections>
+                        <outlet property="IPTextField" destination="NxP-n1-bm2" id="R5P-IJ-wFh"/>
+                        <outlet property="connectButton" destination="hQY-Pj-2td" id="1EK-8p-H99"/>
+                        <outlet property="connectionStatusLabel" destination="jAM-3W-NQp" id="Osn-sT-0Xh"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="controller_segue" id="8Jb-fX-7Ok"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TaX-sL-oig" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-381" y="417"/>
+        </scene>
+    </scenes>
+</document>
