@@ -7,12 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		150927E11BF211C000583A11 /* OutputSerializer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 150927DC1BF211C000583A11 /* OutputSerializer.mm */; settings = {ASSET_TAGS = (); }; };
-		150927E21BF211C000583A11 /* SocketClient.mm in Sources */ = {isa = PBXBuildFile; fileRef = 150927DE1BF211C000583A11 /* SocketClient.mm */; settings = {ASSET_TAGS = (); }; };
-		150927E31BF211C000583A11 /* WarriorsSerializer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 150927E01BF211C000583A11 /* WarriorsSerializer.mm */; settings = {ASSET_TAGS = (); }; };
-		150927E71BF23F2F00583A11 /* ConnectionViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 150927E61BF23F2F00583A11 /* ConnectionViewController.mm */; settings = {ASSET_TAGS = (); }; };
-		15F51E4A1BF15B1400946A14 /* ContainerView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 15F51E491BF15B1400946A14 /* ContainerView.mm */; settings = {ASSET_TAGS = (); }; };
-		15F51E4C1BF15BE800946A14 /* ContainerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15F51E4B1BF15BE800946A14 /* ContainerView.xib */; settings = {ASSET_TAGS = (); }; };
+		150927E11BF211C000583A11 /* OutputSerializer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 150927DC1BF211C000583A11 /* OutputSerializer.mm */; };
+		150927E21BF211C000583A11 /* SocketClient.mm in Sources */ = {isa = PBXBuildFile; fileRef = 150927DE1BF211C000583A11 /* SocketClient.mm */; };
+		150927E31BF211C000583A11 /* WarriorsSerializer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 150927E01BF211C000583A11 /* WarriorsSerializer.mm */; };
+		150927E71BF23F2F00583A11 /* ConnectionViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 150927E61BF23F2F00583A11 /* ConnectionViewController.mm */; };
+		15F51E4A1BF15B1400946A14 /* ContainerView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 15F51E491BF15B1400946A14 /* ContainerView.mm */; };
+		15F51E4C1BF15BE800946A14 /* ContainerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15F51E4B1BF15BE800946A14 /* ContainerView.xib */; };
 		15FB1DFF1BF10E5B0030DD94 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 15FB1DFE1BF10E5B0030DD94 /* main.m */; };
 		15FB1E021BF10E5B0030DD94 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 15FB1E011BF10E5B0030DD94 /* AppDelegate.m */; };
 		15FB1E051BF10E5B0030DD94 /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 15FB1E041BF10E5B0030DD94 /* ViewController.mm */; };
@@ -148,6 +148,7 @@
 				TargetAttributes = {
 					15FB1DF91BF10E5B0030DD94 = {
 						CreatedOnToolsVersion = 7.0;
+						DevelopmentTeam = L63ZXW5B42;
 					};
 				};
 			};
@@ -306,6 +307,7 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "Community Gaming Controller/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -320,6 +322,7 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "Community Gaming Controller/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
