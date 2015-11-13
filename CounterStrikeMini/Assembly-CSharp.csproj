@@ -51,6 +51,7 @@
      <Compile Include="Assets\Scripts\Game.cs" />
      <Compile Include="Assets\Scripts\InputSerializer.cs" />
      <Compile Include="Assets\Scripts\Loom.cs" />
+     <Compile Include="Assets\Scripts\PlayerInfo.cs" />
      <Compile Include="Assets\Scripts\Program.cs" />
      <Compile Include="Assets\Scripts\UnityCommunicationUnit.cs" />
      <Compile Include="Assets\Scripts\WarriorCommunicationUnit.cs" />
