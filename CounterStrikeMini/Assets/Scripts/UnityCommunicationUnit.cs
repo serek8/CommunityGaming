@@ -88,12 +88,12 @@ public class UnityCommunicationUnit : MonoBehaviour, ISocketAccessibility, IBase
             DestroyObject(player);
             playerInfo.ResetStats();
             StartCoroutine(WaitForRespawn());
-            InitializePlayer();
         }
     }
 
     IEnumerator WaitForRespawn() {
         yield return new WaitForSeconds(respawnTime);
+        InitializePlayer();
     }
 
     #endregion
