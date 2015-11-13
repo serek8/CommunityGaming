@@ -30,6 +30,7 @@ public class UnityCommunicationUnit : MonoBehaviour, ISocketAccessibility, IBase
 //		player.GetComponent<SpriteRenderer>().material.color = Color(UnityEngine.Random.Range (0.0, 1.0), UnityEngine.Random.Range (0.0, 1.0), UnityEngine.Random.Range (0.0, 1.0));
 		player.GetComponent<SpriteRenderer>().color = new Color(UnityEngine.Random.Range(0.0f,1.0f),UnityEngine.Random.Range(0.0f,1.0f),UnityEngine.Random.Range(0.0f,1.0f));
 			playerTransform = player.GetComponent<Transform>();
+        playerTransform.SetParent(GameObject.Find("Players").GetComponent<Transform>());
         camera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
 		bullet = Resources.Load ("Bullet") as GameObject;
     }
@@ -126,10 +127,11 @@ public class UnityCommunicationUnit : MonoBehaviour, ISocketAccessibility, IBase
 
     void ShotBullet() {
         //check if warrior.action is equal to shot and if they are eligble to shot later we can add types of weapon and depending on them do frequency of shooting
-        if(warrior.action == 1 && Time.time > nextFire) {
+        if(warrior.action == 1 && warrior.isActionSet&& Time.time > nextFire) {
             nextFire = Time.time + fireRate;
-            Vector3 bulletSpawnPosition = playerTransform.position + new Vector3(0.2f, 0.0f, 0.2f);
-            Instantiate(bullet, bulletSpawnPosition, playerTransform.rotation);
+            Vector3 bulletSpawnPosition = playerTransform.position + new Vector3(0.2f, 0.0f, 0.0f);
+            Instantiate(bullet, bulletSpawnPosition, bullet.transform.rotation);
+            warrior.isActionSet = false;
         }
     }
 
