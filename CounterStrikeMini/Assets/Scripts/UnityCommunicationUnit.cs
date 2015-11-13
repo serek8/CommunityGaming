@@ -29,13 +29,17 @@ public class UnityCommunicationUnit : MonoBehaviour, ISocketAccessibility, IBase
 
     // Use this for initialization
     void Start () {
-        testCube = Resources.Load("Cube") as GameObject;
-        player = Instantiate(testCube, new Vector3(testCube.transform.position.x + UnityEngine.Random.Range(5.0f, 7.0f), testCube.transform.position.y + UnityEngine.Random.Range(3.0f, 5.0f), 0), Quaternion.identity)as GameObject ;
-		player.GetComponent<SpriteRenderer>().color = new Color(UnityEngine.Random.Range(0.0f,1.0f),UnityEngine.Random.Range(0.0f,1.0f),UnityEngine.Random.Range(0.0f,1.0f));
-		playerTransform = player.GetComponent<Transform>();
-        playerTransform.SetParent(GameObject.Find("Players").GetComponent<Transform>());
+        InitializePlayer();
         camera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
 		bullet = Resources.Load ("Bullet") as GameObject;
+    }
+
+    private void InitializePlayer() {
+        testCube = Resources.Load("Cube") as GameObject;
+        player = Instantiate(testCube, new Vector3(testCube.transform.position.x + UnityEngine.Random.Range(5.0f, 7.0f), testCube.transform.position.y + UnityEngine.Random.Range(3.0f, 5.0f), 0), Quaternion.identity) as GameObject;
+        player.GetComponent<SpriteRenderer>().color = new Color(UnityEngine.Random.Range(0.0f, 1.0f), UnityEngine.Random.Range(0.0f, 1.0f), UnityEngine.Random.Range(0.0f, 1.0f));
+        playerTransform = player.GetComponent<Transform>();
+        playerTransform.SetParent(GameObject.Find("Players").GetComponent<Transform>());
     }
 
     public void setWarrior(WarriorCommunicationUnit w)
@@ -84,6 +88,7 @@ public class UnityCommunicationUnit : MonoBehaviour, ISocketAccessibility, IBase
             DestroyObject(player);
             playerInfo.ResetStats();
             StartCoroutine(WaitForRespawn());
+            InitializePlayer();
         }
     }
 
