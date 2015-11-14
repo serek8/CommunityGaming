@@ -44,8 +44,7 @@ public class UnityCommunicationUnit : MonoBehaviour, ISocketAccessibility, IBase
 
     public void setWarrior(WarriorCommunicationUnit w)
     {
-        warrior = w;
-        
+        warrior = w;     
     }
 
     // Update is called once per frame
@@ -77,14 +76,14 @@ public class UnityCommunicationUnit : MonoBehaviour, ISocketAccessibility, IBase
         if(warrior.action == 1 && warrior.isActionSet&& Time.time > nextFire) {
             nextFire = Time.time + fireRate;
             Vector3 bulletSpawnPosition = playerTransform.position + new Vector3(0.2f, 0.0f, 0.0f);
-            Instantiate(bullet, bulletSpawnPosition, bullet.transform.rotation);
+            Instantiate(bullet, bulletSpawnPosition, playerTransform.rotation);
             warrior.isActionSet = false;
         }
     }
 
     void PlayerGotHit() {
         playerInfo.healthPoints--;
-        if(playerInfo.healthPoints == 0) {
+        if(playerInfo.healthPoints <= 0) {
             DestroyObject(player);
             playerInfo.ResetStats();
             StartCoroutine(WaitForRespawn());
@@ -94,6 +93,13 @@ public class UnityCommunicationUnit : MonoBehaviour, ISocketAccessibility, IBase
     IEnumerator WaitForRespawn() {
         yield return new WaitForSeconds(respawnTime);
         InitializePlayer();
+    }
+
+    void OnTriggerEnter(Collider other) {
+        if(other.tag == "Bullet") {
+            PlayerGotHit();
+        }
+        Destroy(other.gameObject);  
     }
 
     #endregion

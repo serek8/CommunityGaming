@@ -11,8 +11,6 @@ namespace CommunityGaming {
             Rigidbody rigidBody = GetComponent<Rigidbody>();
             rigidBody.velocity = transform.forward * speed;
         }
-
-
     }
 
 }
