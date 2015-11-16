@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+
 namespace CommunityGaming {
 
     public class BulletMover : MonoBehaviour {
@@ -8,8 +9,8 @@ namespace CommunityGaming {
         public float speed;
 
         void Start() {
-            Rigidbody rigidBody = GetComponent<Rigidbody>();
-            rigidBody.velocity = transform.forward * speed;
+            Rigidbody2D rigidBody = GetComponent<Rigidbody2D>();
+            rigidBody.velocity = transform.rotation*Vector3.up * speed; ;
         }
     }
 

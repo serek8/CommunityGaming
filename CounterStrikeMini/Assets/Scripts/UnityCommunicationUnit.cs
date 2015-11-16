@@ -31,7 +31,7 @@ public class UnityCommunicationUnit : MonoBehaviour, ISocketAccessibility, IBase
     void Start () {
         InitializePlayer();
         camera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
-		bullet = Resources.Load ("Bullet") as GameObject;
+		bullet = Resources.Load ("BulletNew") as GameObject;
     }
 
     private void InitializePlayer() {
@@ -76,6 +76,7 @@ public class UnityCommunicationUnit : MonoBehaviour, ISocketAccessibility, IBase
         if(warrior.action == 1 && warrior.isActionSet&& Time.time > nextFire) {
             nextFire = Time.time + fireRate;
             Vector3 bulletSpawnPosition = playerTransform.position + new Vector3(0.2f, 0.0f, 0.0f);
+           
             Instantiate(bullet, bulletSpawnPosition, playerTransform.rotation);
             warrior.isActionSet = false;
         }
@@ -95,18 +96,35 @@ public class UnityCommunicationUnit : MonoBehaviour, ISocketAccessibility, IBase
         InitializePlayer();
     }
 
-    void OnTriggerEnter(Collider other) {
-        if(other.tag == "Bullet") {
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Bullet")
+        {
             PlayerGotHit();
         }
-        Destroy(other.gameObject);  
+        Destroy(other.gameObject);
     }
+
+    //void OnTriggerEnter2D(Collider2D other)
+    //{
+    //    Debug.Log("Entering");
+
+    //}
+    //void OnTriggerExit2D(Collider2D other)
+    //{
+    //    Debug.Log("Leaving");
+    //}
+    //void OnTriggerStay2D(Collider2D other)
+    //{
+    //    Debug.Log("Staying");
+    //}
 
     #endregion
 
     #region Serverside methods
     public void didDisconnect() {
-        throw new NotImplementedException();
+        Destroy(player.gameObject);
+       
     }
 
     public UnityCommunicationUnit(NetworkStream stream) {
