@@ -3,12 +3,13 @@ using System.Collections;
 
 namespace CommunityGaming {
 
-    public class PlayerInfo {
+    public class PlayerInfo : MonoBehaviour {
 
         public int healthPoints;
         public int killStreak;
 
-        public PlayerInfo() {
+        void Start()
+        {
             ResetStats();
         }
         

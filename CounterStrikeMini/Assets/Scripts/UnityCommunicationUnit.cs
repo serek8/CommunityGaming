@@ -23,7 +23,7 @@ public class UnityCommunicationUnit : MonoBehaviour, ISocketAccessibility, IBase
     public float nextFire; // set to 0 in Unity
     public float fireRate; // how often they should shot 
 
-    private PlayerInfo playerInfo = new PlayerInfo();
+    private PlayerInfo playerInfo;
     #endregion
 
 
@@ -39,7 +39,9 @@ public class UnityCommunicationUnit : MonoBehaviour, ISocketAccessibility, IBase
         player = Instantiate(testCube, new Vector3(testCube.transform.position.x + UnityEngine.Random.Range(5.0f, 7.0f), testCube.transform.position.y + UnityEngine.Random.Range(3.0f, 5.0f), 0), Quaternion.identity) as GameObject;
         player.GetComponent<SpriteRenderer>().color = new Color(UnityEngine.Random.Range(0.0f, 1.0f), UnityEngine.Random.Range(0.0f, 1.0f), UnityEngine.Random.Range(0.0f, 1.0f));
         playerTransform = player.GetComponent<Transform>();
-        playerTransform.SetParent(GameObject.Find("Players").GetComponent<Transform>());
+        //playerTransform.SetParent(GameObject.Find("Players").GetComponent<Transform>());
+        playerTransform.SetParent(this.gameObject.GetComponent<Transform>());
+       playerInfo= player.AddComponent<PlayerInfo>();
     }
 
     public void setWarrior(WarriorCommunicationUnit w)
@@ -75,14 +77,14 @@ public class UnityCommunicationUnit : MonoBehaviour, ISocketAccessibility, IBase
         //check if warrior.action is equal to shot and if they are eligble to shot later we can add types of weapon and depending on them do frequency of shooting
         if(warrior.action == 1 && warrior.isActionSet&& Time.time > nextFire) {
             nextFire = Time.time + fireRate;
-            Vector3 bulletSpawnPosition = playerTransform.position + new Vector3(0.2f, 0.0f, 0.0f);
-           
+            Vector3 bulletSpawnPosition = playerTransform.position+ (playerTransform.rotation * Vector3.up)*1.0f;
+
             Instantiate(bullet, bulletSpawnPosition, playerTransform.rotation);
             warrior.isActionSet = false;
         }
     }
 
-    void PlayerGotHit() {
+    public void PlayerGotHit() {
         playerInfo.healthPoints--;
         if(playerInfo.healthPoints <= 0) {
             DestroyObject(player);
@@ -96,20 +98,21 @@ public class UnityCommunicationUnit : MonoBehaviour, ISocketAccessibility, IBase
         InitializePlayer();
     }
 
-    void OnTriggerEnter(Collider other)
-    {
-        if (other.tag == "Bullet")
-        {
-            PlayerGotHit();
-        }
-        Destroy(other.gameObject);
-    }
-
-    //void OnTriggerEnter2D(Collider2D other)
+    //void OnTriggerEnter(Collider other)
     //{
-    //    Debug.Log("Entering");
-
+    //    if (other.tag == "Bullet")
+    //    {
+    //        PlayerGotHit();
+    //        player.on
+    //    }
+    //    Destroy(other.gameObject);
     //}
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        Debug.Log("entering");
+        //if()
+    }
     //void OnTriggerExit2D(Collider2D other)
     //{
     //    Debug.Log("Leaving");
