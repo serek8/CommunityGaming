@@ -10,7 +10,7 @@
 #import "ContainerView.h"
 #import "SocketClient.h"
 
-@interface ViewController : UIViewController <ContainerViewDelegate, SocketClientDelegate>
+@interface ViewController : UIViewController <SocketClientDelegate>
 
 @property (strong, nonatomic) SocketClient *socketClient;
 
