@@ -78,7 +78,6 @@ public class UnityCommunicationUnit : MonoBehaviour, ISocketAccessibility, IBase
         if(warrior.action == 1 && warrior.isActionSet&& Time.time > nextFire) {
             nextFire = Time.time + fireRate;
             Vector3 bulletSpawnPosition = playerTransform.position+ (playerTransform.rotation * Vector3.up)*1.0f;
-
             Instantiate(bullet, bulletSpawnPosition, playerTransform.rotation);
             warrior.isActionSet = false;
         }
@@ -108,11 +107,7 @@ public class UnityCommunicationUnit : MonoBehaviour, ISocketAccessibility, IBase
     //    Destroy(other.gameObject);
     //}
 
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        Debug.Log("entering");
-        //if()
-    }
+   
     //void OnTriggerExit2D(Collider2D other)
     //{
     //    Debug.Log("Leaving");
