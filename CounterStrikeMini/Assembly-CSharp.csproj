@@ -48,19 +48,29 @@
      <Compile Include="Assets\Scripts\BulletMover.cs" />
      <Compile Include="Assets\Scripts\CommunicationUnitFactory.cs" />
      <Compile Include="Assets\Scripts\ComunicationUnit.cs" />
+     <Compile Include="Assets\Scripts\DestroyByBoundary.cs" />
+     <Compile Include="Assets\Scripts\DestroyableObject.cs" />
      <Compile Include="Assets\Scripts\Game.cs" />
+     <Compile Include="Assets\Scripts\HitByBullet.cs" />
      <Compile Include="Assets\Scripts\InputSerializer.cs" />
      <Compile Include="Assets\Scripts\Loom.cs" />
      <Compile Include="Assets\Scripts\PlayerInfo.cs" />
      <Compile Include="Assets\Scripts\Program.cs" />
+     <Compile Include="Assets\Scripts\SetBoundary.cs" />
      <Compile Include="Assets\Scripts\UnityCommunicationUnit.cs" />
      <Compile Include="Assets\Scripts\WarriorCommunicationUnit.cs" />
      <Compile Include="Assets\Scripts\WarriorGame.cs" />
+ <Reference Include="UnityEngine.Advertisements">
+ <HintPath>D:/Unity/Editor/Data/UnityExtensions/Unity/Advertisements/UnityEngine.Advertisements.dll</HintPath>
+ </Reference>
  <Reference Include="UnityEngine.UI">
  <HintPath>D:/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.Networking">
  <HintPath>D:/Unity/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.Analytics">
+ <HintPath>D:/Unity/Editor/Data/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>
  </Reference>
  <Reference Include="Mono.Cecil">
  <HintPath>D:/Unity/Editor/Data/Managed/Mono.Cecil.dll</HintPath>

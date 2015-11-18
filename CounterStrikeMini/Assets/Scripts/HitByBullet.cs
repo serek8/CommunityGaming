@@ -15,6 +15,7 @@ public class HitByBullet : MonoBehaviour {
             //Debug.Log(this.gameObject.transform.parent.gameObject.GetComponent<UnityCommunicationUnit>());
             this.gameObject.transform.parent.gameObject.GetComponent<UnityCommunicationUnit>().PlayerGotHit();
         }
+
         //if()
     }
 }

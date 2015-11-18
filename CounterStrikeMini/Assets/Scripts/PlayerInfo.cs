@@ -9,7 +9,7 @@ namespace CommunityGaming {
         public int killStreak;
 
         void Start()
-        {
+        {   
             ResetStats();
         }
         
