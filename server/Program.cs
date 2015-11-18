@@ -29,6 +29,7 @@ namespace CommunityGaming
                      }
                      
                      Console.WriteLine("Client:{0}\tmovement: {1}",i,wariorGame.communicationUnits[i].movement);
+                     Console.WriteLine("Client:{0}\tmovement: {1}",i,wariorGame.communicationUnits[i].speed);
                      Console.WriteLine("Client:{0}\trotation: {1}",i,wariorGame.communicationUnits[i].rotation);
                      Console.WriteLine("Client:{0}\taction: {1}",i,wariorGame.communicationUnits[i].action);                         
                                               
