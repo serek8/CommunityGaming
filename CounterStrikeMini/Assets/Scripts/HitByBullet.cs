@@ -5,7 +5,6 @@ public class HitByBullet : MonoBehaviour {
     
 	void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("entering");
         if (other.gameObject.tag == "Bullet")
         {
             
@@ -16,6 +15,7 @@ public class HitByBullet : MonoBehaviour {
             //Debug.Log(this.gameObject.transform.parent.gameObject.GetComponent<UnityCommunicationUnit>());
             this.gameObject.transform.parent.gameObject.GetComponent<UnityCommunicationUnit>().PlayerGotHit();
         }
+
         //if()
     }
 }

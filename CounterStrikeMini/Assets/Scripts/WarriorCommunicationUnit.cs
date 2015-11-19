@@ -50,7 +50,7 @@ namespace CommunityGaming
              this.movement = inputSerializer.readIntFromStream();
              this.rotation = inputSerializer.readIntFromStream();
              this.action = inputSerializer.readIntFromStream();
-                this.speed = inputSerializer.readIntFromStream();
+               // this.speed = inputSerializer.readIntFromStream();
             }
              if(this.action==1) isActionSet=true;
             Console.WriteLine("movement:{0}, speed:{1}, rotation:{2}, action{3}", movement, speed, rotation, action);
