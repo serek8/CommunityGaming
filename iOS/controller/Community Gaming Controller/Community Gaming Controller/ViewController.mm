@@ -16,6 +16,10 @@
 
 @property (strong, nonatomic) WarriorsSerializer *war;
 
+@property NSTimeInterval tempTimestampForDubleTouch;
+
+@property BOOL dataDidSend;
+
 @end
 
 @implementation ViewController
@@ -77,6 +81,9 @@
             if (([[event touchesForView:self.movementContainerView] count] > 0 ) && ([[event touchesForView:self.rotationContainerView] count] > 0)) {
                 
                 UITouch *movementTouch = [[event touchesForView:self.movementContainerView] anyObject];
+                
+                //self.tempTimestampForDubleTouch = movementTouch.timestamp;
+                
                 CGPoint movementPoint = [movementTouch locationInView:self.movementContainerView];
                 self.movementContainerView.pointFollower.center = movementPoint;
                 int movAngle = [self.movementContainerView angleToPoint:movementPoint];
@@ -86,8 +93,11 @@
                 self.rotationContainerView.pointFollower.center = rotationPoint;
                 int rotAngle = [self.rotationContainerView angleToPoint:rotationPoint];
                 
+                if (!self.dataDidSend) {
+                    [self movementDidChange:movAngle andRotationDidChange:rotAngle];
+                }
+                self.dataDidSend = !self.dataDidSend;
                 
-                [self movementDidChange:movAngle andRotationDidChange:rotAngle];
             }
             
             else if ([[event touchesForView:self.rotationContainerView] count] > 0) {
@@ -114,24 +124,83 @@
             break;
     }
     
-    
-    
-    
-    //UITouch *rotationTouch = [[event touchesForView:self.rotationContainerView] anyObject];
-    
-//
-//    if (self.containerViewType == ContainerViewTypeMovement) {
-//
-//    }
-//    else if (self.containerViewType == ContainerViewTypeRotation){
-//        NSLog([NSString stringWithFormat:@"Rotation touch began: %i",angle]);
-//        [self.delegate rotationDidChange:angle];
-//    }
-    //NSLog(@"");
 }
 
 -(void)touchesMoved:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
-    NSLog(@"%i", [event.allTouches count]);
+    NSInteger numberOfTouches = [event.allTouches count];
+    
+    switch (numberOfTouches) {
+        case 1:
+        {
+            if ([[event touchesForView:self.movementContainerView] count] > 0) {
+                UITouch *movementTouch = [[event touchesForView:self.movementContainerView] anyObject];
+                CGPoint movementPoint = [movementTouch locationInView:self.movementContainerView];
+                self.movementContainerView.pointFollower.center = movementPoint;
+                int angle = [self.movementContainerView angleToPoint:movementPoint];
+                NSLog([NSString stringWithFormat:@"Movement: %i",angle]);
+                [self movementDidChange:angle];
+            }
+            
+            if ([[event touchesForView:self.rotationContainerView] count] > 0) {
+                UITouch *rotationTouch = [[event touchesForView:self.rotationContainerView] anyObject];
+                CGPoint rotationPoint = [rotationTouch locationInView:self.rotationContainerView];
+                self.rotationContainerView.pointFollower.center = rotationPoint;
+                int angle = [self.rotationContainerView angleToPoint:rotationPoint];
+                NSLog([NSString stringWithFormat:@"Rotation: %i",angle]);
+                [self rotationDidChange:angle];
+            }
+        }
+            break;
+        case 2:
+        {
+            if (([[event touchesForView:self.movementContainerView] count] > 0 ) && ([[event touchesForView:self.rotationContainerView] count] > 0)) {
+                
+                UITouch *movementTouch = [[event touchesForView:self.movementContainerView] anyObject];
+                
+                //self.tempTimestampForDubleTouch = movementTouch.timestamp;
+                
+                CGPoint movementPoint = [movementTouch locationInView:self.movementContainerView];
+                self.movementContainerView.pointFollower.center = movementPoint;
+                int movAngle = [self.movementContainerView angleToPoint:movementPoint];
+                
+                UITouch *rotationTouch = [[event touchesForView:self.rotationContainerView] anyObject];
+                CGPoint rotationPoint = [rotationTouch locationInView:self.rotationContainerView];
+                self.rotationContainerView.pointFollower.center = rotationPoint;
+                int rotAngle = [self.rotationContainerView angleToPoint:rotationPoint];
+                
+                if (!self.dataDidSend) {
+                    [self movementDidChange:movAngle andRotationDidChange:rotAngle];
+                    NSLog([NSString stringWithFormat:@"Rotation: %i Movement: %i",rotAngle,movAngle]);
+                }
+                self.dataDidSend = !self.dataDidSend;
+                
+                
+                
+            }
+            
+            else if ([[event touchesForView:self.rotationContainerView] count] > 0) {
+                UITouch *rotationTouch = [[event touchesForView:self.rotationContainerView] anyObject];
+                CGPoint rotationPoint = [rotationTouch locationInView:self.rotationContainerView];
+                self.rotationContainerView.pointFollower.center = rotationPoint;
+                int angle = [self.rotationContainerView angleToPoint:rotationPoint];
+                NSLog([NSString stringWithFormat:@"Rotation: %i",angle]);
+                [self rotationDidChange:angle];
+            }
+            
+            else if ([[event touchesForView:self.movementContainerView] count] > 0) {
+                UITouch *movementTouch = [[event touchesForView:self.movementContainerView] anyObject];
+                CGPoint movementPoint = [movementTouch locationInView:self.movementContainerView];
+                self.movementContainerView.pointFollower.center = movementPoint;
+                int angle = [self.movementContainerView angleToPoint:movementPoint];
+                NSLog([NSString stringWithFormat:@"Movement: %i",angle]);
+                [self movementDidChange:angle];
+            }
+            
+        }
+            break;
+        default:
+            break;
+    }
 }
 
 - (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
@@ -161,37 +230,5 @@
     self.war.warriorRoatation = rotation;
     [self.socketClient sendObject:self.war];
 }
-
-//- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
-//
-//    //}
-//
-//- (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
-//    NSLog(@"Touch end");
-//    self.pointFollower.center = self.centerPoint.center;
-//    //self.imageView.center = point;
-//}
-//
-//- (void)touchesCancelled:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
-//    NSLog(@"Touch cancel");
-//}
-//
-//- (void)touchesMoved:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
-//    UITouch *touch = [[event touchesForView:self] anyObject];
-//    CGPoint point = [touch locationInView:self];
-//    self.pointFollower.center = point;
-//    int angle = [self angleToPoint:point];
-//    if (self.containerViewType == ContainerViewTypeMovement) {
-//        NSLog([NSString stringWithFormat:@"Movement: %i",angle]);
-//        [self.delegate movementDidChange:angle];
-//    }
-//    else if (self.containerViewType == ContainerViewTypeRotation){
-//        NSLog([NSString stringWithFormat:@"Rotation: %i",angle]);
-//        [self.delegate rotationDidChange:angle];
-//    }
-//    //self.imageView.center = point;
-//}
-//
-
 
 @end
