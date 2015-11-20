@@ -9,6 +9,8 @@
 #import "ViewController.h"
 #import "WarriorsSerializer.h"
 
+#define ShootAction 1
+
 @interface ViewController () 
 
 @property (weak, nonatomic) IBOutlet ContainerView *movementContainerView;
@@ -27,6 +29,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.war = [[WarriorsSerializer alloc] init];
+    
+    [self addGestureRecognizerForShoot];
 }
 
 #pragma mark - SocketClientDelegate
@@ -67,6 +71,23 @@
 }
 
 #pragma mark - Helpers
+
+- (void)addGestureRecognizerForShoot{
+    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleShootGesture:)];
+    tapGesture.numberOfTapsRequired = 2;
+    [self.rotationContainerView addGestureRecognizer:tapGesture];
+}
+
+- (void)handleShootGesture:(UITapGestureRecognizer *)sender {
+    CGPoint rotationPoint = [sender locationInView:self.rotationContainerView];
+    self.rotationContainerView.pointFollower.center = rotationPoint;
+    int angle = [self.rotationContainerView angleToPoint:rotationPoint];
+    [self rotationDidChange:angle withAction: ShootAction];
+}
+
+- (void)rotationDidChange:(int)rotation withAction:(int)action{
+    [self sendObjectWithMovement:-1 rotation:rotation speed:3 action:action];
+}
 
 - (void)rotationDidChange:(int)rotation{
     [self sendObjectWithMovement:-1 rotation:rotation speed:3 action:0];
@@ -113,7 +134,6 @@
         CGPoint movementPoint = [movementTouch locationInView:self.movementContainerView];
         self.movementContainerView.pointFollower.center = movementPoint;
         int angle = [self.movementContainerView angleToPoint:movementPoint];
-        NSLog([NSString stringWithFormat:@"Movement: %i",angle]);
         [self movementDidChange:angle];
     }
     
@@ -122,7 +142,6 @@
         CGPoint rotationPoint = [rotationTouch locationInView:self.rotationContainerView];
         self.rotationContainerView.pointFollower.center = rotationPoint;
         int angle = [self.rotationContainerView angleToPoint:rotationPoint];
-        NSLog([NSString stringWithFormat:@"Rotation: %i",angle]);
         [self rotationDidChange:angle];
     }
 }
@@ -142,7 +161,6 @@
         
         if (!self.dataDidSend) {
             [self movementDidChange:movAngle andRotationDidChange:rotAngle];
-            NSLog([NSString stringWithFormat:@"Rotation: %i Movement: %i",rotAngle,movAngle]);
         }
         self.dataDidSend = !self.dataDidSend;
     }
@@ -152,7 +170,6 @@
         CGPoint rotationPoint = [rotationTouch locationInView:self.rotationContainerView];
         self.rotationContainerView.pointFollower.center = rotationPoint;
         int angle = [self.rotationContainerView angleToPoint:rotationPoint];
-        NSLog([NSString stringWithFormat:@"Rotation: %i",angle]);
         [self rotationDidChange:angle];
     }
     
@@ -161,7 +178,6 @@
         CGPoint movementPoint = [movementTouch locationInView:self.movementContainerView];
         self.movementContainerView.pointFollower.center = movementPoint;
         int angle = [self.movementContainerView angleToPoint:movementPoint];
-        NSLog([NSString stringWithFormat:@"Movement: %i",angle]);
         [self movementDidChange:angle];
     }
 }
