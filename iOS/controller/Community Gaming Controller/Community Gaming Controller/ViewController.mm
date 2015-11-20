@@ -86,24 +86,23 @@
 }
 
 - (void)rotationDidChange:(int)rotation withAction:(int)action{
-    [self sendObjectWithMovement:-1 rotation:rotation speed:3 action:action];
+    [self sendObjectWithMovement:-1 rotation:rotation action:action];
 }
 
 - (void)rotationDidChange:(int)rotation{
-    [self sendObjectWithMovement:-1 rotation:rotation speed:3 action:0];
+    [self sendObjectWithMovement:-1 rotation:rotation action:0];
 }
 
 - (void)movementDidChange:(int)movement{
-    [self sendObjectWithMovement:movement rotation:-1 speed:3 action:0];
+    [self sendObjectWithMovement:movement rotation:-1 action:0];
 }
 
 - (void)movementDidChange:(int)movement andRotationDidChange:(int)rotation {
-    [self sendObjectWithMovement:movement rotation:rotation speed:3 action:0];
+    [self sendObjectWithMovement:movement rotation:rotation action:0];
 }
 
-- (void)sendObjectWithMovement:(int)movement rotation:(int)rotation speed:(int)speed action:(int)action{
+- (void)sendObjectWithMovement:(int)movement rotation:(int)rotation action:(int)action{
     self.war.warriorRoatation = rotation;
-    self.war.warriorSpeed = speed;
     self.war.warriorMovement = movement;
     self.war.warriorAction = action;
     [self.socketClient sendObject:self.war];

@@ -69,6 +69,32 @@
 			name = Core;
 			sourceTree = "<group>";
 		};
+		151B01711BFF391600E560B2 /* Code */ = {
+			isa = PBXGroup;
+			children = (
+				150927E51BF23F2F00583A11 /* ConnectionViewController.h */,
+				150927E61BF23F2F00583A11 /* ConnectionViewController.mm */,
+				15FB1E031BF10E5B0030DD94 /* ViewController.h */,
+				15FB1E041BF10E5B0030DD94 /* ViewController.mm */,
+				15F51E481BF15B1400946A14 /* ContainerView.h */,
+				15F51E491BF15B1400946A14 /* ContainerView.mm */,
+				15FB1E001BF10E5B0030DD94 /* AppDelegate.h */,
+				15FB1E011BF10E5B0030DD94 /* AppDelegate.m */,
+			);
+			name = Code;
+			sourceTree = "<group>";
+		};
+		151B01721BFF39B500E560B2 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				15FB1E061BF10E5B0030DD94 /* Main.storyboard */,
+				15FB1E091BF10E5B0030DD94 /* Assets.xcassets */,
+				15FB1E0B1BF10E5B0030DD94 /* LaunchScreen.storyboard */,
+				15FB1E0E1BF10E5B0030DD94 /* Info.plist */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		15FB1DF11BF10E5B0030DD94 = {
 			isa = PBXGroup;
 			children = (
@@ -88,18 +114,8 @@
 		15FB1DFC1BF10E5B0030DD94 /* Community Gaming Controller */ = {
 			isa = PBXGroup;
 			children = (
-				15FB1E001BF10E5B0030DD94 /* AppDelegate.h */,
-				15FB1E011BF10E5B0030DD94 /* AppDelegate.m */,
-				150927E51BF23F2F00583A11 /* ConnectionViewController.h */,
-				150927E61BF23F2F00583A11 /* ConnectionViewController.mm */,
-				15FB1E031BF10E5B0030DD94 /* ViewController.h */,
-				15FB1E041BF10E5B0030DD94 /* ViewController.mm */,
-				15F51E481BF15B1400946A14 /* ContainerView.h */,
-				15F51E491BF15B1400946A14 /* ContainerView.mm */,
-				15FB1E061BF10E5B0030DD94 /* Main.storyboard */,
-				15FB1E091BF10E5B0030DD94 /* Assets.xcassets */,
-				15FB1E0B1BF10E5B0030DD94 /* LaunchScreen.storyboard */,
-				15FB1E0E1BF10E5B0030DD94 /* Info.plist */,
+				151B01711BFF391600E560B2 /* Code */,
+				151B01721BFF39B500E560B2 /* Resources */,
 				150927E41BF211CE00583A11 /* Core */,
 				15FB1DFD1BF10E5B0030DD94 /* Supporting Files */,
 			);

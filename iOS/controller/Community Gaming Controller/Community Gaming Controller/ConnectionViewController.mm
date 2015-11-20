@@ -39,6 +39,7 @@
 
 -(void)clientSocketDidDisconnectFromServer{
     NSLog(@"Disconnected");
+    [self dismissViewControllerAnimated:YES completion:nil];
     self.connectionStatusLabel.text = @"Connetion status: Disconnected";
 }
 

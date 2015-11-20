@@ -14,6 +14,5 @@
 @property (atomic, assign) int warriorMovement;
 @property (atomic, assign) int warriorRoatation;
 @property (atomic, assign) int warriorAction;
-@property (atomic, assign) int warriorSpeed;
 
 @end
