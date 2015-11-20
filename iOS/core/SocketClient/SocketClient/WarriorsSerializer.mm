@@ -17,6 +17,7 @@
 -(void)writeToStream:(SocketClient*)socketClient
 {
     (*[socketClient getOutputSerializer])<<_warriorMovement;
+    (*[socketClient getOutputSerializer])<<_warriorSpeed;
     (*[socketClient getOutputSerializer])<<_warriorRoatation;
     (*[socketClient getOutputSerializer])<<_warriorAction;
 }
