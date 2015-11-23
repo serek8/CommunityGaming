@@ -10,6 +10,7 @@
 #import "WarriorsSerializer.h"
 
 #define ShootAction 1
+#define ShootTimeDelay 300
 
 @interface ViewController () 
 
@@ -29,8 +30,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.war = [[WarriorsSerializer alloc] init];
-    
-    [self addGestureRecognizerForShoot];
 }
 
 #pragma mark - SocketClientDelegate
@@ -56,6 +55,7 @@
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
     [super touchesBegan:touches withEvent:event];
+    [self checkForShootInTouches:touches];
     [self handleWithEvent:(UIEvent*)event];
 }
 
@@ -76,13 +76,15 @@
 
 #pragma mark - Helpers
 
-- (void)addGestureRecognizerForShoot{
-    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleShootGesture:)];
-    tapGesture.numberOfTapsRequired = 2;
-    [self.rotationContainerView addGestureRecognizer:tapGesture];
+- (void)checkForShootInTouches:(NSSet *)touches{
+    for (UITouch *aTouch in touches) {
+        if (aTouch.tapCount >= 2) {
+            [self handleShootGesture:aTouch];
+        }
+    }
 }
 
-- (void)handleShootGesture:(UITapGestureRecognizer *)sender {
+- (void)handleShootGesture:(UITouch *)sender {
     CGPoint rotationPoint = [sender locationInView:self.rotationContainerView];
     self.rotationContainerView.pointFollower.center = rotationPoint;
     int angle = [self.rotationContainerView angleToPoint:rotationPoint];
