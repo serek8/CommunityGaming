@@ -55,19 +55,23 @@
 #pragma mark - UIResponder
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    [super touchesBegan:touches withEvent:event];
     [self handleWithEvent:(UIEvent*)event];
 }
 
 -(void)touchesMoved:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    [super touchesMoved:touches withEvent:event];
     [self handleWithEvent:event];
 }
 
 - (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
-    NSLog(@"Touches Ended");
+    [super touchesEnded:touches withEvent:event];
+    //NSLog(@"Touches Ended");
 }
 
 - (void)touchesCancelled:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
-    NSLog(@"Touches Cancelled");
+    [super touchesCancelled:touches withEvent:event];
+    //NSLog(@"Touches Cancelled");
 }
 
 #pragma mark - Helpers
@@ -86,6 +90,7 @@
 }
 
 - (void)rotationDidChange:(int)rotation withAction:(int)action{
+    NSLog(@"ACTION!");
     [self sendObjectWithMovement:-1 rotation:rotation action:action];
 }
 
