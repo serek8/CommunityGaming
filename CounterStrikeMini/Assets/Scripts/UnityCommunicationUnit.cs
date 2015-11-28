@@ -41,7 +41,7 @@ public class UnityCommunicationUnit : MonoBehaviour, ISocketAccessibility, IBase
         playerTransform = player.GetComponent<Transform>();
         //playerTransform.SetParent(GameObject.Find("Players").GetComponent<Transform>());
         playerTransform.SetParent(this.gameObject.GetComponent<Transform>());
-        playerInfo = new PlayerInfo();
+        playerInfo = player.AddComponent<PlayerInfo>();
     }
 
     public void setWarrior(WarriorCommunicationUnit w)

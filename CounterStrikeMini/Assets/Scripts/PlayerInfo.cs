@@ -3,7 +3,7 @@ using System.Collections;
 
 namespace CommunityGaming {
 
-    public class PlayerInfo{
+    public class PlayerInfo: MonoBehaviour{
 
         public int healthPoints;
         public int killStreak;
@@ -14,18 +14,23 @@ namespace CommunityGaming {
             get { return this.team; }
         }
 
-        public PlayerInfo() {   
+        void Start() {
             ResetStats();
             deathCounter = 0;
             killCounter = 0;
         }
-        //this constructor will be used by default for setting team
-        public PlayerInfo(char team) {
-            ResetStats();
-            deathCounter = 0;
-            killCounter = 0;
-            this.team = team;
-        }
+        //public PlayerInfo() {   
+        //    ResetStats();
+        //    deathCounter = 0;
+        //    killCounter = 0;
+        //}
+        ////this constructor will be used by default for setting team
+        //public PlayerInfo(char team) {
+        //    ResetStats();
+        //    deathCounter = 0;
+        //    killCounter = 0;
+        //    this.team = team;
+        //}
         
         public void ResetStats() {
             healthPoints = 5;
