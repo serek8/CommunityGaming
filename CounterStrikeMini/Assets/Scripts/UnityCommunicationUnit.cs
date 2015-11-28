@@ -41,7 +41,7 @@ public class UnityCommunicationUnit : MonoBehaviour, ISocketAccessibility, IBase
         playerTransform = player.GetComponent<Transform>();
         //playerTransform.SetParent(GameObject.Find("Players").GetComponent<Transform>());
         playerTransform.SetParent(this.gameObject.GetComponent<Transform>());
-       playerInfo= player.AddComponent<PlayerInfo>();
+        playerInfo = new PlayerInfo();
     }
 
     public void setWarrior(WarriorCommunicationUnit w)
@@ -86,15 +86,16 @@ public class UnityCommunicationUnit : MonoBehaviour, ISocketAccessibility, IBase
     public void PlayerGotHit() {
         playerInfo.healthPoints--;
         if(playerInfo.healthPoints <= 0) {
-            DestroyObject(player);
+            player.SetActive(false);
             playerInfo.ResetStats();
+            playerInfo.incrementDeathCounter();
             StartCoroutine(WaitForRespawn());
         }
     }
 
     IEnumerator WaitForRespawn() {
         yield return new WaitForSeconds(respawnTime);
-        InitializePlayer();
+        player.SetActive(true); // need to change to spawn in direct position not on last death location.
     }
 
     //void OnTriggerEnter(Collider other)
