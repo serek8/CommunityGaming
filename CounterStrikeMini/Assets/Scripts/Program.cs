@@ -23,20 +23,13 @@ namespace CommunityGaming
             wariorGame = new WarriorGame();
             Thread thread = new Thread(new ThreadStart(() => wariorGame.startServer()));
             thread.Start();
+          
         }
-
+    
         public void StopServer()
         {
             wariorGame.Close();
         }
-        void Update()
-        {
-            //if(this.wariorGame.communicationUnits.Count()>numberOfPlayers)
-            //{
-            //    //GameObject player = Instantiate(testCube, new Vector3( testCube.transform.position.x + UnityEngine.Random.Range(5.0f, 7.0f), testCube.transform.position.y + UnityEngine.Random.Range(3.0f, 5.0f), 0), Quaternion.identity) as GameObject;
-            //    //player.name = ""+numberOfPlayers++;
-
-            //}
-        }
+        
     }
 }
