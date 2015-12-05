@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using CommunityGaming;
 
 public class HitByBullet : MonoBehaviour {
     
@@ -7,13 +8,9 @@ public class HitByBullet : MonoBehaviour {
     {
         if (other.gameObject.tag == "Bullet")
         {
-            
             Destroy(other.gameObject);
-            //this.gameObject.GetComponent<UnityCommunicationUnit>().PlayerGotHit();
-            Debug.Log(this.gameObject);
-            //Debug.Log(this.gameObject.GetComponent<UnityCommunicationUnit>());
-            //Debug.Log(this.gameObject.transform.parent.gameObject.GetComponent<UnityCommunicationUnit>());
-            this.gameObject.transform.parent.gameObject.GetComponent<UnityCommunicationUnit>().PlayerGotHit();
+            this.gameObject.transform.parent.gameObject.GetComponent<UnityCommunicationUnit>().PlayerGotHit(other.gameObject.GetComponent<BulletMover>().getWhoShot());
+
         }
 
         //if()

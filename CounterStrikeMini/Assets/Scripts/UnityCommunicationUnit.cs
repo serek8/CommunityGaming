@@ -47,9 +47,9 @@ public class UnityCommunicationUnit : MonoBehaviour, ISocketAccessibility, IBase
         //}
     }
 
-    public void PlayerGotHit()
+    public void PlayerGotHit(Player p)
     {
-        player.PlayerGotHit();
+        player.PlayerGotHit(p);
     }
       
     #region Serverside methods

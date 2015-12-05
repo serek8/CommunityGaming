@@ -20,6 +20,11 @@ public class Player : MonoBehaviour {
     private float nextFire; // set to 0 in Unity
     private float fireRate; // how often they should shot 
 
+    public PlayerInfo getPlayerInfo()
+    {
+        return playerInfo;
+    }
+
     
     void Start()
     {
@@ -72,15 +77,17 @@ public class Player : MonoBehaviour {
         {
             nextFire = Time.time + fireRate;
             Vector3 bulletSpawnPosition = playerTransform.position + (playerTransform.rotation * Vector3.up) * 1.0f;
-            Instantiate(bullet, bulletSpawnPosition, playerTransform.rotation);
+            GameObject b= Instantiate(bullet, bulletSpawnPosition, playerTransform.rotation)as GameObject;
+            b.GetComponent<BulletMover>().setWhoShot(this);
             warrior.isActionSet = false;
         }
     }
-    public void PlayerGotHit()
+    public void PlayerGotHit(Player p)
     {
         playerInfo.healthPoints--;
         if (playerInfo.healthPoints <= 0)
         {
+            p.getPlayerInfo().incrementKillCounter();
             player.SetActive(false);
             playerInfo.ResetStats();
             playerInfo.incrementDeathCounter();
