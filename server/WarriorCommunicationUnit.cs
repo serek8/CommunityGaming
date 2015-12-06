@@ -47,6 +47,7 @@ namespace CommunityGaming
              this.movement = BitConverter.ToInt32(bytes, 0);
              this.rotation = BitConverter.ToInt32(bytes, 4);
              this.action   = BitConverter.ToInt32(bytes, 8);
+             if(this.action==1) isActionSet=true;
               Console.WriteLine("movement:{0} rotation:{1}, action{2}", movement, rotation, action);   
         }
         
