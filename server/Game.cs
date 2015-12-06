@@ -73,9 +73,9 @@ namespace CommunityGaming
                     T communicationUnit = this.createNewCommunicationUnit(client.client.GetStream());
                     communicationUnits.Add(communicationUnit);
                     Console.WriteLine("Connected! id:" + (client.id));
-                    // Thread thread = new Thread(new ThreadStart(() => handleClient(communicationUnit, client)));
-                    // thread.Start();
-                    // client.Close();
+                    Thread thread = new Thread(new ThreadStart(() => handleClient(communicationUnit, client)));
+                    thread.Start();
+                    //client.Close();
                 }
             }
             catch (SocketException)

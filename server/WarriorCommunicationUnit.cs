@@ -24,18 +24,22 @@ namespace CommunityGaming
         }              
 	public override void readFromStream() 
         {
-        //     lock (this)
-        //     {
-        //      this.movement = inputSerializer.readIntFromStream();
-        //      this.rotation = inputSerializer.readIntFromStream();
-        //      this.action   = inputSerializer.readIntFromStream();
-        //     }
-        //      if(this.action==1) isActionSet=true;
-        //      Console.WriteLine("movement:{0} rotation:{1}, action{2}", movement, rotation, action);
+            lock (this)
+            {
+             this.movement = inputSerializer.readIntFromStream();
+             this.rotation = inputSerializer.readIntFromStream();
+             this.action   = inputSerializer.readIntFromStream();
+            }
+             if(this.action==1) isActionSet=true;
+             Console.WriteLine("movement:{0} rotation:{1}, action{2}", movement, rotation, action);
                 Console.WriteLine("Warning someone uses old version of Core");
         }
         public override void writeFromStream() { }	
         
+        public override void didDisconnect()
+        {
+            base.didDisconnect();
+        }
         
         
         public override void AdoptNewData(byte[] bytes)

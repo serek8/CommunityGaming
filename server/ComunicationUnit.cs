@@ -31,7 +31,7 @@ namespace CommunityGaming
             this.isConnected = true;
         }
         
-        public void didDisconnect()
+        public virtual void didDisconnect()
         {
             this.isConnected = false;
         }
