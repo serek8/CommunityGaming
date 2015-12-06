@@ -43,7 +43,7 @@ public class WarriorSocketClientUsageExample implements SocketClientDelegate
 			  warrior.roatation=Integer.parseInt(rotation);
 			  warrior.action=Integer.parseInt(action);
 			  
-			  warrior.writeToStream(socketClient);
+			  warrior.sendAsUdpRoSever(socketClient);
 			  
 			
 		}

@@ -11,6 +11,7 @@ namespace CommunityGaming
     {
         void readFromStream();
         void writeFromStream();
+        void AdoptNewData(byte[] bytes);
     }
     
     public interface ISocketAccessibility
@@ -37,7 +38,8 @@ namespace CommunityGaming
 
         public virtual void readFromStream()  { }
         public virtual void writeFromStream() { }
-
+        public virtual void AdoptNewData(byte[] bytes) {}
+ 
        
 
 

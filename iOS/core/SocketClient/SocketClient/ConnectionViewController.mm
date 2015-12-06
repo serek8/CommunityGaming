@@ -7,7 +7,8 @@
 //
 
 #import "ConnectionViewController.h"
-#import "ViewController.h"
+#import "WarriorsSerializer.h"
+
 
 @interface ConnectionViewController ()
 
@@ -34,7 +35,7 @@
 -(void)clientSocketDidConnectToServer{
     NSLog(@"Connected");
     self.connectionStatusLabel.text = @"Connetion status: Connected";
-    [self performSegueWithIdentifier:@"controller_segue" sender:self];
+    
 }
 
 -(void)clientSocketDidDisconnectFromServer{
@@ -52,11 +53,26 @@
     
 }
 
+
+- (IBAction)sendSAmpleButton:(UIButton *)sender
+{
+    WarriorsSerializer *war = [[WarriorsSerializer alloc] init];
+    
+    war.warriorMovement = 5;
+    war.warriorRoatation = 6;
+    war.warriorAction = 7;
+
+    [war sendAsUdpToServer:self.socketClient];
+//    char tab[12];
+//    for(int i=0; i<4; i++) tab[i]=((char*)(&(a)))[i];
+//    //[self.socketClient sendObject:war];
+//    NSData *data = [NSData dataWithBytes:tab length:12];
+//    [self.socketClient sendUdpObject:data];
+}
+
+
 #pragma mark - Segue
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-    ViewController *vc = (ViewController*)[segue destinationViewController];
-    vc.socketClient = self.socketClient;
-}
+
 
 @end
