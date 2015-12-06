@@ -13,6 +13,7 @@ public class Player : MonoBehaviour {
     private Transform playerTransform;
     private PlayerInfo playerInfo;
     private int respawnTime = 3;
+    
     Position currentPosition = Position.Center;
     
 
@@ -24,6 +25,8 @@ public class Player : MonoBehaviour {
     {
         return playerInfo;
     }
+
+    
 
     
     void Start()

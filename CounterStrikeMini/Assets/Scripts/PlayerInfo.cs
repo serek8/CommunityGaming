@@ -9,9 +9,16 @@ namespace CommunityGaming {
         public int killStreak;
         int deathCounter;
         int killCounter;
-        public char team {
-            set { this.team = value; }
-            get { return this.team; }
+        private char team;
+
+        public void setTeam(char team)
+        {
+            this.team = team;
+        }
+
+        public char getTeam()
+        {
+            return team;
         }
 
         void Start() {
@@ -52,7 +59,7 @@ namespace CommunityGaming {
         public int getKillCounter() {
             return this.killCounter;
         }
-
+        
 
     }
 
