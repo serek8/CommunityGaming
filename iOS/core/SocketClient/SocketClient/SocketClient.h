@@ -33,6 +33,7 @@
 
 -(id)initWithHost:(NSString*)hostName port:(int)port delegate:(id<SocketClientDelegate>)delegate;
 -(void)sendObject:(id<BaseSerializable>)serializer;
+-(void)sendUdpObject:(NSData*)data;
 
 -(OutputSerializer*)getOutputSerializer;
 

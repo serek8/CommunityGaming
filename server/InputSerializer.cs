@@ -32,5 +32,21 @@ namespace CommunityGaming
             }
             return BitConverter.ToInt32(bytes, 0);
         }
+        
+        // public int readIntFromBytes(byte[] bytes)
+        // {
+        //     Byte[] bytes = new Byte[4];
+        //     int i = 0;
+        //     int totalBytes = 0;
+        //     while (totalBytes < 3)
+        //     {
+        //         i=networkStream.Read(bytes, totalBytes, bytes.Length-totalBytes);
+        //         if (i<=0)  throw new IOException();
+                
+        //         totalBytes += i;
+        //         //Console.WriteLine("Reeceived {0}bytes:",i);
+        //     }
+        //     return BitConverter.ToInt32(bytes, 0);
+        // }
     }
 }

@@ -8,7 +8,7 @@
 
 #import "SocketClient.h"
 #import "BaseSerializable.h"
-
+#import "UDPEcho.h"
 
 @interface SocketClient()
 {
@@ -17,7 +17,7 @@
 
 @property (nonatomic, strong) NSInputStream *inputStream;
 @property (nonatomic, strong) NSOutputStream *outputStream;
-
+@property (nonatomic, strong) UDPEcho *udpObj;
 @property (nonatomic, weak) id<SocketClientDelegate> delegate;
 
 @end
@@ -48,6 +48,11 @@
     [self.inputStream open];
     [self.outputStream open];
     _outputSerializer=new OutputSerializer(self.outputStream);
+    
+    // Create UDP client
+    self.udpObj = [[UDPEcho alloc] init];
+    [self.udpObj startConnectedToHostName:hostName port:5557];
+    
     return self;
 }
 
@@ -55,6 +60,11 @@
 -(void)sendObject:(id<BaseSerializable>)serializer
 {
     [serializer writeToStream:self];
+}
+
+-(void)sendUdpObject:(NSData*)data
+{
+    [self.udpObj sendData:data];
 }
 
 
