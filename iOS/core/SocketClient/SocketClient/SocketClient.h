@@ -20,6 +20,7 @@
 -(void)clientSocketEncounteredErrorConnectingToServer;
 -(void)clientSocketDidDisconnectFromServer;
 -(void)clientSocketDidReceivedData:(uint8_t *)data numberOfReadBytes:(int)dataSize;
+-(void)clientSocketDidReceivedCode:(int)code;
 
 
 

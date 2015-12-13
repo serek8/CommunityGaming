@@ -69,7 +69,10 @@
 //    NSData *data = [NSData dataWithBytes:tab length:12];
 //    [self.socketClient sendUdpObject:data];
 }
-
+-(void)clientSocketDidReceivedCode:(int)code
+{
+    
+}
 
 #pragma mark - Segue
 
