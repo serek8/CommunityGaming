@@ -85,11 +85,11 @@
                 static uint8_t buffer[4];
                 static int len;
                 while ([self.inputStream hasBytesAvailable]) {
-                    len += [self.inputStream read:buffer maxLength:sizeof(buffer)];
+                    len += [self.inputStream read:buffer maxLength:sizeof(buffer)-len];
                     if (len == 4) {
-                        [self.delegate clientSocketDidReceivedCode:(int)(buffer)];
+                        [self.delegate clientSocketDidReceivedCode:(int)(*buffer)];
                         len = 0;
-                        NSLog(@"\nServer received: %d code", (int)(buffer));
+                        NSLog(@"\nServer received: %d code", (int)(*buffer));
                        
                         
                         

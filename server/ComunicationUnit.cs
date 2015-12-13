@@ -23,10 +23,11 @@ namespace CommunityGaming
     class CommunicationUnit : IBaseSerializer, ISocketAccessibility
     {   
         public bool isConnected;
-        
+        public NetworkStream stream;
         protected InputSerializer inputSerializer;
         public CommunicationUnit(NetworkStream stream)
         {
+            this.stream = stream; 
             this.inputSerializer = new InputSerializer(stream);
             this.isConnected = true;
         }

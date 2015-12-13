@@ -20,6 +20,7 @@ namespace CommunityGaming
            {
                  //Console.WriteLine("Nacisnij ENTER zeby sprawdzic wariorGame.communicationUnits[i].movement");
                  Console.ReadLine();
+                 wariorGame.communicationUnits[0].writeCodeToStream(3);
                 //  for (int i = 0; i < wariorGame.communicationUnits.Count(); i++)
                 //  {
                 //      if (!wariorGame.communicationUnits[i].isConnected)

@@ -13,6 +13,7 @@ namespace CommunityGaming
         public int movement, rotation, action;
         public bool isActionSet = false;
         
+        
         // Core part        
         public WarriorCommunicationUnit(NetworkStream stream)
         :base(stream)
@@ -35,6 +36,12 @@ namespace CommunityGaming
                 Console.WriteLine("Warning someone uses old version of Core");
         }
         public override void writeFromStream() { }	
+        
+        public void writeCodeToStream(int code)
+        {
+                stream.Write(BitConverter.GetBytes(code), 0, 4);
+        }
+        
         
         public override void didDisconnect()
         {
