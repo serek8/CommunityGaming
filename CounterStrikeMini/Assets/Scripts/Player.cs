@@ -14,12 +14,12 @@ public class Player : MonoBehaviour {
     private PlayerInfo playerInfo;
     private int respawnTime = 3;
     
-    Position currentPosition = Position.Center;
+ 
     
 
     private GameObject bullet; //bullet object
     private float nextFire; // set to 0 in Unity
-    private float fireRate; // how often they should shot 
+    private float fireRate=0.25f; // how often they should shot 
 
     public PlayerInfo getPlayerInfo()
     {
@@ -73,16 +73,28 @@ public class Player : MonoBehaviour {
         playerTransform.rotation = Quaternion.Euler(0, 0, x-90);
 
     }
-    public void ShotBullet(WarriorCommunicationUnit warrior)
+    //public void ShotBullet(WarriorCommunicationUnit warrior)
+    //{
+    //    //check if warrior.action is equal to shot and if they are eligble to shot later we can add types of weapon and depending on them do frequency of shooting
+    //    if ( warrior.isActionSet && Time.time > nextFire)
+    //    {
+    //        nextFire = Time.time + fireRate;
+    //        Vector3 bulletSpawnPosition = playerTransform.position + (playerTransform.rotation * Vector3.up) * 1.0f;
+    //        GameObject b= Instantiate(bullet, bulletSpawnPosition, playerTransform.rotation)as GameObject;
+    //        b.GetComponent<BulletMover>().setWhoShot(this);
+    //        warrior.isActionSet = false;
+    //    }
+    //}
+
+    public void ShotWithRotation(int x)
     {
-        //check if warrior.action is equal to shot and if they are eligble to shot later we can add types of weapon and depending on them do frequency of shooting
-        if (warrior.action == 1 && warrior.isActionSet && Time.time > nextFire)
+        playerTransform.rotation = Quaternion.Euler(0, 0, x - 90);
+        if(Time.time>nextFire)
         {
             nextFire = Time.time + fireRate;
             Vector3 bulletSpawnPosition = playerTransform.position + (playerTransform.rotation * Vector3.up) * 1.0f;
-            GameObject b= Instantiate(bullet, bulletSpawnPosition, playerTransform.rotation)as GameObject;
+            GameObject b = Instantiate(bullet, bulletSpawnPosition, playerTransform.rotation) as GameObject;
             b.GetComponent<BulletMover>().setWhoShot(this);
-            warrior.isActionSet = false;
         }
     }
     public void PlayerGotHit(Player p)
@@ -102,62 +114,13 @@ public class Player : MonoBehaviour {
         yield return new WaitForSeconds(respawnTime);
         player.SetActive(true); // need to change to spawn in direct position not on last death location.
     }
-    private enum Position
-    {
-        Left,
-        Right,
-        Center
-    }
+   
 
-    private void moveLeft()
-    {
-        if ((ucu.warrior.movement > 0 && ucu.warrior.movement < 60) || (ucu.warrior.movement > 300 && ucu.warrior.movement < 360))
-        {
-            playerTransform.Translate(new Vector3(-5, 0, 0));
-            if(currentPosition==Position.Center)
-            {
-                currentPosition = Position.Left;
-            }
-            else if(currentPosition==Position.Right)
-            {
-                currentPosition = Position.Center;
-            }
-        }
-    }
+   
 
-    private void moveRight()
-    {
-        if (ucu.warrior.movement > 135 && ucu.warrior.movement < 225)
-        {
-            playerTransform.Translate(new Vector3(5, 0, 0));
-            if (currentPosition == Position.Center)
-            {
-                currentPosition = Position.Right;
-            }
-            else if (currentPosition == Position.Left)
-            {
-                currentPosition = Position.Right;
-            }
-        }
-    }
+    
 
-    public void ChooseTeams()
-    {
-       if(currentPosition==Position.Left)
-        {
-            moveLeft();
-        }
-       else if(currentPosition==Position.Center)
-        {
-            moveLeft();
-            moveRight();
-        }
-       else
-        {
-            moveRight();
-        }
-
-    }
+   
 
    
 

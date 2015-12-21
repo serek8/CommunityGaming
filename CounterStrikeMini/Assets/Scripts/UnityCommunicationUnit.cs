@@ -37,9 +37,9 @@ public class UnityCommunicationUnit : MonoBehaviour, ISocketAccessibility, IBase
             }
             if (warrior.rotation != -1)
             {
-                player.RotateObject(warrior.rotation);
+            player.ShotWithRotation(warrior.rotation);
             }
-            player.ShotBullet(warrior);
+            //player.ShotBullet(warrior);
         
         //else
         //{
@@ -53,10 +53,7 @@ public class UnityCommunicationUnit : MonoBehaviour, ISocketAccessibility, IBase
     }
       
     #region Serverside methods
-    public void didDisconnect() {
-        Destroy(player.gameObject);
-       
-    }
+    
 
     public UnityCommunicationUnit(NetworkStream stream) {
 
@@ -68,6 +65,16 @@ public class UnityCommunicationUnit : MonoBehaviour, ISocketAccessibility, IBase
 
     public void writeFromStream() {
         ((IBaseSerializer)warrior).writeFromStream();
+    }
+
+    public void AdoptNewData(byte[] bytes)
+    {
+        ((IBaseSerializer)warrior).AdoptNewData(bytes);
+    }
+
+    public void didDisconnect()
+    {
+        ((ISocketAccessibility)warrior).didDisconnect();
     }
     #endregion
 

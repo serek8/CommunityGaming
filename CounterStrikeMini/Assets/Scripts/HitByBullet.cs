@@ -9,7 +9,10 @@ public class HitByBullet : MonoBehaviour {
         if (other.gameObject.tag == "Bullet")
         {
             Destroy(other.gameObject);
-            this.gameObject.transform.parent.gameObject.GetComponent<UnityCommunicationUnit>().PlayerGotHit(other.gameObject.GetComponent<BulletMover>().getWhoShot());
+            if (gameObject.GetComponentInChildren<PlayerInfo>().getTeam()!=other.gameObject.GetComponent<BulletMover>().getWhoShot().getPlayerInfo().getTeam())
+            {
+                this.gameObject.transform.parent.gameObject.GetComponent<UnityCommunicationUnit>().PlayerGotHit(other.gameObject.GetComponent<BulletMover>().getWhoShot());
+            }
 
         }
 
