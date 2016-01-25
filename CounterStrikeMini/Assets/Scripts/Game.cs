@@ -30,6 +30,7 @@ namespace CommunityGaming
         public List<T> communicationUnits;
         private List<ClientObject> clientList;
         private  TcpListener server;
+		public UdpClient udpServer;
 
         ~Game()
         {
@@ -48,15 +49,23 @@ namespace CommunityGaming
             this.server = null;
         }
         
-        public void startServer()
+         public void startServer()
         {
             try
             {
                 Int32 port = 5555;
+                // Setting TCP server
                 server = new TcpListener(IPAddress.Any,port);
-
                 server.Start();
-                Console.WriteLine("Server is running");
+                Console.WriteLine("TCP - Running");
+                
+                //Setting UDP server
+                this.udpServer = new UdpClient(5557);
+                Console.WriteLine("UDP - Running");
+                Thread udpServerThread = new Thread(new ThreadStart(() => handleUdpServer()));
+                    udpServerThread.Start();
+                
+                Console.WriteLine("Server is ready");
                 while (true)
                 {
                     Console.WriteLine("Waiting for a connection... ");
@@ -67,13 +76,13 @@ namespace CommunityGaming
                     Console.WriteLine("Connected! id:" + (client.id));
                     Thread thread = new Thread(new ThreadStart(() => handleClient(communicationUnit, client)));
                     thread.Start();
-                    Debug.Log(clientList.Count());
-                    // client.Close();
+                    //client.Close();
                 }
             }
-            catch (Exception e)
+            catch (SocketException)
             {
-                Console.WriteLine("SocketException: {0}", e);
+                Console.WriteLine("Error -> Cannot establish connection. \nPlease check if there is other application which uses port 5555");
+                //Console.WriteLine("SocketException: {0}", e);
             }
             finally
             {
@@ -95,6 +104,28 @@ namespace CommunityGaming
                 this.communicationUnits[clientObject.id].didDisconnect();
                 clientObject.isConnected = false;
                 clientObject.client.Close();
+            }
+        }
+		
+		private void handleUdpServer()
+        {
+            var groupEP = new IPEndPoint(IPAddress.Any, 0);
+            while(true)
+            {
+                //Console.WriteLine("Waiting for UDP message...");
+ 			    byte[] bytes = udpServer.Receive(ref groupEP);    
+                //Console.WriteLine("This is the message you received from {0}", groupEP.Address.ToString());
+                foreach (ClientObject clientObject in this.clientList)
+                {
+                    if(clientObject.isConnected==false) continue;
+                    IPAddress clientObjectAdress = IPAddress.Parse(((IPEndPoint)clientObject.client.Client.RemoteEndPoint).Address.ToString());
+                    IPAddress udpClientAdress = groupEP.Address;
+                    if(clientObjectAdress.Equals(udpClientAdress))
+                    {
+                        this.communicationUnits[clientObject.id].AdoptNewData(bytes);
+                        break;
+                    }
+                }
             }
         }
         

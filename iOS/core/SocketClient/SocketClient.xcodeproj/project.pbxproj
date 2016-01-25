@@ -7,35 +7,39 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3B59F2B01BD7F41200981470 /* OutputSerializer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 3B59F2AE1BD7F41200981470 /* OutputSerializer.mm */; };
-		3BE858171BE1132500F5ADE5 /* WarriorsSerializer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 3BE858161BE1132500F5ADE5 /* WarriorsSerializer.mm */; };
+		3BC4C7611C13B46E001B1C49 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3BC4C7601C13B46E001B1C49 /* Main.storyboard */; };
+		3BC4C7641C13B476001B1C49 /* ConnectionViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 3BC4C7631C13B476001B1C49 /* ConnectionViewController.mm */; };
+		3BC4C7701C13B491001B1C49 /* WarriorsSerializer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 3BC4C76B1C13B491001B1C49 /* WarriorsSerializer.mm */; };
+		3BC4C7711C13B491001B1C49 /* UDPEcho.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BC4C76D1C13B491001B1C49 /* UDPEcho.m */; };
+		3BC4C7761C13B567001B1C49 /* SocketClient.mm in Sources */ = {isa = PBXBuildFile; fileRef = 3BC4C7731C13B567001B1C49 /* SocketClient.mm */; };
+		3BC4C77C1C13B5E7001B1C49 /* OutputSerializer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 3BC4C77B1C13B5E7001B1C49 /* OutputSerializer.mm */; };
 		3BFB92B71BC1531400FE1EB1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BFB92B61BC1531400FE1EB1 /* main.m */; };
 		3BFB92BA1BC1531400FE1EB1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BFB92B91BC1531400FE1EB1 /* AppDelegate.m */; };
-		3BFB92BD1BC1531400FE1EB1 /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 3BFB92BC1BC1531400FE1EB1 /* ViewController.mm */; };
-		3BFB92C01BC1531400FE1EB1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3BFB92BE1BC1531400FE1EB1 /* Main.storyboard */; };
 		3BFB92C21BC1531400FE1EB1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3BFB92C11BC1531400FE1EB1 /* Assets.xcassets */; };
 		3BFB92C51BC1531400FE1EB1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3BFB92C31BC1531400FE1EB1 /* LaunchScreen.storyboard */; };
-		3BFB92CE1BC1546900FE1EB1 /* SocketClient.mm in Sources */ = {isa = PBXBuildFile; fileRef = 3BFB92CD1BC1546900FE1EB1 /* SocketClient.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		3B59F2AE1BD7F41200981470 /* OutputSerializer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = OutputSerializer.mm; sourceTree = "<group>"; };
-		3B59F2AF1BD7F41200981470 /* OutputSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OutputSerializer.h; sourceTree = "<group>"; };
-		3BE858121BE1119800F5ADE5 /* BaseSerializable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseSerializable.h; sourceTree = "<group>"; };
-		3BE858151BE1132500F5ADE5 /* WarriorsSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WarriorsSerializer.h; sourceTree = "<group>"; };
-		3BE858161BE1132500F5ADE5 /* WarriorsSerializer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = WarriorsSerializer.mm; sourceTree = "<group>"; };
+		3BC4C7601C13B46E001B1C49 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		3BC4C7621C13B476001B1C49 /* ConnectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectionViewController.h; sourceTree = "<group>"; };
+		3BC4C7631C13B476001B1C49 /* ConnectionViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ConnectionViewController.mm; sourceTree = "<group>"; };
+		3BC4C7651C13B491001B1C49 /* BaseSerializable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseSerializable.h; sourceTree = "<group>"; };
+		3BC4C76A1C13B491001B1C49 /* WarriorsSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WarriorsSerializer.h; sourceTree = "<group>"; };
+		3BC4C76B1C13B491001B1C49 /* WarriorsSerializer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = WarriorsSerializer.mm; sourceTree = "<group>"; };
+		3BC4C76C1C13B491001B1C49 /* UDPEcho.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UDPEcho.h; sourceTree = "<group>"; };
+		3BC4C76D1C13B491001B1C49 /* UDPEcho.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UDPEcho.m; sourceTree = "<group>"; };
+		3BC4C7721C13B567001B1C49 /* SocketClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocketClient.h; sourceTree = "<group>"; };
+		3BC4C7731C13B567001B1C49 /* SocketClient.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SocketClient.mm; sourceTree = "<group>"; };
+		3BC4C7781C13B5C5001B1C49 /* BaseSerializable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseSerializable.h; sourceTree = "<group>"; };
+		3BC4C77B1C13B5E7001B1C49 /* OutputSerializer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = OutputSerializer.mm; sourceTree = "<group>"; };
+		3BC4C77D1C13B6AC001B1C49 /* OutputSerializer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OutputSerializer.h; sourceTree = "<group>"; };
 		3BFB92B21BC1531400FE1EB1 /* SocketClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SocketClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3BFB92B61BC1531400FE1EB1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3BFB92B81BC1531400FE1EB1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3BFB92B91BC1531400FE1EB1 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		3BFB92BB1BC1531400FE1EB1 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		3BFB92BC1BC1531400FE1EB1 /* ViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ViewController.mm; sourceTree = "<group>"; };
-		3BFB92BF1BC1531400FE1EB1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3BFB92C11BC1531400FE1EB1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3BFB92C41BC1531400FE1EB1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3BFB92C61BC1531400FE1EB1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3BFB92CC1BC1546900FE1EB1 /* SocketClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocketClient.h; sourceTree = "<group>"; };
-		3BFB92CD1BC1546900FE1EB1 /* SocketClient.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SocketClient.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,6 +53,39 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3BC4C77E1C13B6CF001B1C49 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				3BC4C7801C13B701001B1C49 /* Networking */,
+				3BC4C77F1C13B6D6001B1C49 /* Serializers */,
+			);
+			name = Core;
+			sourceTree = "<group>";
+		};
+		3BC4C77F1C13B6D6001B1C49 /* Serializers */ = {
+			isa = PBXGroup;
+			children = (
+				3BC4C7651C13B491001B1C49 /* BaseSerializable.h */,
+				3BC4C7781C13B5C5001B1C49 /* BaseSerializable.h */,
+				3BC4C77B1C13B5E7001B1C49 /* OutputSerializer.mm */,
+				3BC4C77D1C13B6AC001B1C49 /* OutputSerializer.h */,
+				3BC4C76A1C13B491001B1C49 /* WarriorsSerializer.h */,
+				3BC4C76B1C13B491001B1C49 /* WarriorsSerializer.mm */,
+			);
+			name = Serializers;
+			sourceTree = "<group>";
+		};
+		3BC4C7801C13B701001B1C49 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				3BC4C7721C13B567001B1C49 /* SocketClient.h */,
+				3BC4C7731C13B567001B1C49 /* SocketClient.mm */,
+				3BC4C76C1C13B491001B1C49 /* UDPEcho.h */,
+				3BC4C76D1C13B491001B1C49 /* UDPEcho.m */,
+			);
+			name = Networking;
+			sourceTree = "<group>";
+		};
 		3BFB92A91BC1531400FE1EB1 = {
 			isa = PBXGroup;
 			children = (
@@ -68,22 +105,11 @@
 		3BFB92B41BC1531400FE1EB1 /* SocketClient */ = {
 			isa = PBXGroup;
 			children = (
-				3BFB92B81BC1531400FE1EB1 /* AppDelegate.h */,
-				3BFB92B91BC1531400FE1EB1 /* AppDelegate.m */,
-				3BFB92BB1BC1531400FE1EB1 /* ViewController.h */,
-				3BFB92BC1BC1531400FE1EB1 /* ViewController.mm */,
-				3BFB92BE1BC1531400FE1EB1 /* Main.storyboard */,
-				3BFB92C11BC1531400FE1EB1 /* Assets.xcassets */,
-				3BFB92C31BC1531400FE1EB1 /* LaunchScreen.storyboard */,
-				3BFB92C61BC1531400FE1EB1 /* Info.plist */,
+				3BC4C7621C13B476001B1C49 /* ConnectionViewController.h */,
+				3BC4C7631C13B476001B1C49 /* ConnectionViewController.mm */,
+				3BC4C7601C13B46E001B1C49 /* Main.storyboard */,
+				3BC4C77E1C13B6CF001B1C49 /* Core */,
 				3BFB92B51BC1531400FE1EB1 /* Supporting Files */,
-				3BFB92CC1BC1546900FE1EB1 /* SocketClient.h */,
-				3BFB92CD1BC1546900FE1EB1 /* SocketClient.mm */,
-				3B59F2AE1BD7F41200981470 /* OutputSerializer.mm */,
-				3B59F2AF1BD7F41200981470 /* OutputSerializer.h */,
-				3BE858121BE1119800F5ADE5 /* BaseSerializable.h */,
-				3BE858151BE1132500F5ADE5 /* WarriorsSerializer.h */,
-				3BE858161BE1132500F5ADE5 /* WarriorsSerializer.mm */,
 			);
 			path = SocketClient;
 			sourceTree = "<group>";
@@ -91,7 +117,12 @@
 		3BFB92B51BC1531400FE1EB1 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				3BFB92B81BC1531400FE1EB1 /* AppDelegate.h */,
+				3BFB92B91BC1531400FE1EB1 /* AppDelegate.m */,
 				3BFB92B61BC1531400FE1EB1 /* main.m */,
+				3BFB92C11BC1531400FE1EB1 /* Assets.xcassets */,
+				3BFB92C31BC1531400FE1EB1 /* LaunchScreen.storyboard */,
+				3BFB92C61BC1531400FE1EB1 /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -153,9 +184,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3BC4C7611C13B46E001B1C49 /* Main.storyboard in Resources */,
 				3BFB92C51BC1531400FE1EB1 /* LaunchScreen.storyboard in Resources */,
 				3BFB92C21BC1531400FE1EB1 /* Assets.xcassets in Resources */,
-				3BFB92C01BC1531400FE1EB1 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -166,26 +197,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3B59F2B01BD7F41200981470 /* OutputSerializer.mm in Sources */,
-				3BFB92BD1BC1531400FE1EB1 /* ViewController.mm in Sources */,
-				3BE858171BE1132500F5ADE5 /* WarriorsSerializer.mm in Sources */,
-				3BFB92CE1BC1546900FE1EB1 /* SocketClient.mm in Sources */,
+				3BC4C7641C13B476001B1C49 /* ConnectionViewController.mm in Sources */,
 				3BFB92BA1BC1531400FE1EB1 /* AppDelegate.m in Sources */,
+				3BC4C7711C13B491001B1C49 /* UDPEcho.m in Sources */,
+				3BC4C7701C13B491001B1C49 /* WarriorsSerializer.mm in Sources */,
 				3BFB92B71BC1531400FE1EB1 /* main.m in Sources */,
+				3BC4C77C1C13B5E7001B1C49 /* OutputSerializer.mm in Sources */,
+				3BC4C7761C13B567001B1C49 /* SocketClient.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		3BFB92BE1BC1531400FE1EB1 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				3BFB92BF1BC1531400FE1EB1 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		3BFB92C31BC1531400FE1EB1 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

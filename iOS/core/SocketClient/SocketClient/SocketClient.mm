@@ -8,7 +8,7 @@
 
 #import "SocketClient.h"
 #import "BaseSerializable.h"
-
+#import "UDPEcho.h"
 
 @interface SocketClient()
 {
@@ -17,7 +17,7 @@
 
 @property (nonatomic, strong) NSInputStream *inputStream;
 @property (nonatomic, strong) NSOutputStream *outputStream;
-
+@property (nonatomic, strong) UDPEcho *udpObj;
 @property (nonatomic, weak) id<SocketClientDelegate> delegate;
 
 @end
@@ -44,10 +44,15 @@
     [self.inputStream setDelegate:self];
     [self.outputStream setDelegate:self];
     [self.inputStream  scheduleInRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
-    //[self.outputStream scheduleInRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
+    [self.outputStream scheduleInRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
     [self.inputStream open];
     [self.outputStream open];
     _outputSerializer=new OutputSerializer(self.outputStream);
+    
+    // Create UDP client
+    self.udpObj = [[UDPEcho alloc] init];
+    [self.udpObj startConnectedToHostName:hostName port:5557];
+    
     return self;
 }
 
@@ -55,6 +60,11 @@
 -(void)sendObject:(id<BaseSerializable>)serializer
 {
     [serializer writeToStream:self];
+}
+
+-(void)sendUdpObject:(NSData*)data
+{
+    [self.udpObj sendData:data];
 }
 
 
@@ -72,15 +82,17 @@
             
             if (theStream == self.inputStream) {
                 
-                uint8_t buffer[BUFFER_SIZE];
-                int len;
+                static uint8_t buffer[4];
+                static int len;
                 while ([self.inputStream hasBytesAvailable]) {
-                    len = [self.inputStream read:buffer maxLength:sizeof(buffer)];
-                    if (len > 0) {
-                        if(len<BUFFER_SIZE) buffer[len]=0x00;
-                        NSLog(@"\nServer received: %d bytes", len);
-                        //NSLog(@"\nServer said: %@", output);
-                        [self.delegate clientSocketDidReceivedData:buffer numberOfReadBytes:len];
+                    len += [self.inputStream read:buffer maxLength:sizeof(buffer)-len];
+                    if (len == 4) {
+                        [self.delegate clientSocketDidReceivedCode:(int)(*buffer)];
+                        len = 0;
+                        NSLog(@"\nServer received: %d code", (int)(*buffer));
+                       
+                        
+                        
                     }
                 }
             }

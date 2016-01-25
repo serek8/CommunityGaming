@@ -11,6 +11,7 @@ namespace CommunityGaming
     {
         void readFromStream();
         void writeFromStream();
+        void AdoptNewData(byte[] bytes);
     }
     
     public interface ISocketAccessibility
@@ -22,22 +23,24 @@ namespace CommunityGaming
     class CommunicationUnit : IBaseSerializer, ISocketAccessibility
     {   
         public bool isConnected;
-        
+        public NetworkStream stream;
         protected InputSerializer inputSerializer;
         public CommunicationUnit(NetworkStream stream)
         {
+            this.stream = stream; 
             this.inputSerializer = new InputSerializer(stream);
             this.isConnected = true;
         }
         
-        public void didDisconnect()
+        public virtual void didDisconnect()
         {
             this.isConnected = false;
         }
 
         public virtual void readFromStream()  { }
         public virtual void writeFromStream() { }
-
+        public virtual void AdoptNewData(byte[] bytes) {}
+ 
        
 
 

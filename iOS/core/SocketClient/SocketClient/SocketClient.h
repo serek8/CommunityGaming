@@ -20,6 +20,7 @@
 -(void)clientSocketEncounteredErrorConnectingToServer;
 -(void)clientSocketDidDisconnectFromServer;
 -(void)clientSocketDidReceivedData:(uint8_t *)data numberOfReadBytes:(int)dataSize;
+-(void)clientSocketDidReceivedCode:(int)code;
 
 
 
@@ -33,6 +34,7 @@
 
 -(id)initWithHost:(NSString*)hostName port:(int)port delegate:(id<SocketClientDelegate>)delegate;
 -(void)sendObject:(id<BaseSerializable>)serializer;
+-(void)sendUdpObject:(NSData*)data;
 
 -(OutputSerializer*)getOutputSerializer;
 

@@ -7,17 +7,24 @@ namespace CommunityGaming {
 
         public int hp;
         public Sprite dmgSprite;
+        Color color = new Color(0.0f, 1.0f, 0.0f);
 
-       // private SpriteRenderer spriteRenderer;
+        private SpriteRenderer spriteRenderer;
 
         void Awake() {
-            //spriteRenderer = GetComponent<SpriteRenderer>();
+            spriteRenderer = GetComponent<SpriteRenderer>();
+            spriteRenderer.color = color;
         }
 
         public void DamgeObject (int loss) {
           //  spriteRenderer.sprite = dmgSprite;
             hp -= loss;
-            Debug.Log(hp);
+            if(hp > 5) {
+                color.r += 0.2f;
+            }else {
+                color.g -= 0.2f;
+            }
+            spriteRenderer.color = color;
             if(hp <= 0) {
                 gameObject.SetActive(false);
             }

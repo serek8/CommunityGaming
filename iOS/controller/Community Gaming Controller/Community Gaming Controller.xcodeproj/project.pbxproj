@@ -18,6 +18,7 @@
 		15FB1E081BF10E5B0030DD94 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15FB1E061BF10E5B0030DD94 /* Main.storyboard */; };
 		15FB1E0A1BF10E5B0030DD94 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 15FB1E091BF10E5B0030DD94 /* Assets.xcassets */; };
 		15FB1E0D1BF10E5B0030DD94 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15FB1E0B1BF10E5B0030DD94 /* LaunchScreen.storyboard */; };
+		3BC4C7831C13B8A8001B1C49 /* UDPEcho.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BC4C7821C13B8A8001B1C49 /* UDPEcho.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,8 @@
 		15FB1E091BF10E5B0030DD94 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		15FB1E0C1BF10E5B0030DD94 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		15FB1E0E1BF10E5B0030DD94 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3BC4C7811C13B8A8001B1C49 /* UDPEcho.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UDPEcho.h; sourceTree = "<group>"; };
+		3BC4C7821C13B8A8001B1C49 /* UDPEcho.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UDPEcho.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +61,8 @@
 		150927E41BF211CE00583A11 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				3BC4C7811C13B8A8001B1C49 /* UDPEcho.h */,
+				3BC4C7821C13B8A8001B1C49 /* UDPEcho.m */,
 				150927DA1BF211C000583A11 /* BaseSerializable.h */,
 				150927DB1BF211C000583A11 /* OutputSerializer.h */,
 				150927DC1BF211C000583A11 /* OutputSerializer.mm */,
@@ -156,12 +161,12 @@
 		15FB1DF21BF10E5B0030DD94 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0700;
+				LastUpgradeCheck = 0710;
 				ORGANIZATIONNAME = iLabs;
 				TargetAttributes = {
 					15FB1DF91BF10E5B0030DD94 = {
 						CreatedOnToolsVersion = 7.0;
-						DevelopmentTeam = HU9FKSEQXD;
+						DevelopmentTeam = 795PZ6Q4ZU;
 					};
 				};
 			};
@@ -203,6 +208,7 @@
 			files = (
 				150927E31BF211C000583A11 /* WarriorsSerializer.mm in Sources */,
 				15F51E4A1BF15B1400946A14 /* ContainerView.mm in Sources */,
+				3BC4C7831C13B8A8001B1C49 /* UDPEcho.m in Sources */,
 				150927E21BF211C000583A11 /* SocketClient.mm in Sources */,
 				15FB1E051BF10E5B0030DD94 /* ViewController.mm in Sources */,
 				150927E71BF23F2F00583A11 /* ConnectionViewController.mm in Sources */,
@@ -317,7 +323,6 @@
 		15FB1E121BF10E5B0030DD94 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -334,7 +339,6 @@
 		15FB1E131BF10E5B0030DD94 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";

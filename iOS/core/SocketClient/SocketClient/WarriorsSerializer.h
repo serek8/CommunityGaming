@@ -15,4 +15,6 @@
 @property (atomic, assign) int warriorRoatation;
 @property (atomic, assign) int warriorAction;
 
+-(void)sendAsUdpToServer:(SocketClient*)socketClient;
+
 @end
