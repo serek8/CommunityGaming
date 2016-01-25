@@ -66,6 +66,8 @@
 
 - (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
     [super touchesEnded:touches withEvent:event];
+    self.rotationContainerView.pointFollower.center = self.rotationContainerView.centerPoint.center;
+    self.movementContainerView.pointFollower.center = self.movementContainerView.centerPoint.center;
     //NSLog(@"Touches Ended");
 }
 

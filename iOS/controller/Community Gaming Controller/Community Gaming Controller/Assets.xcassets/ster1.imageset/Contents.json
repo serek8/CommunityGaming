@@ -2,12 +2,11 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "ball_big.png",
+      "filename" : "ster1.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "ball_big@2x.png",
       "scale" : "2x"
     },
     {

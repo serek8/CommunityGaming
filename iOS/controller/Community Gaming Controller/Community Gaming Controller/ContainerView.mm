@@ -11,7 +11,7 @@
 @implementation ContainerView
 
 - (void)awakeFromNib{
-    //self.pointFollower.center = self.center;
+    self.pointFollower.center = self.center;
 }
 
 - (int)angleToPoint:(CGPoint)tapPoint{
